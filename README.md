@@ -20,9 +20,8 @@ More info can be found on http://erikdubois.be
 #Screenshots
 
 
-![Screenshots](http://i.imgur.com/CtFKkQC.jpg)
+![Screenshots](http://i.imgur.com/YZhSV8W.jpg)
 
-![Screenshots](http://i.imgur.com/GCRovAU.jpg)
 
 
 #Tutorials
