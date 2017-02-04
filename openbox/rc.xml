@@ -39,7 +39,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Arc-Dark-Tacao</name>
+    <name>Arc-Dark</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -226,9 +226,6 @@
     </keybind>
     <keybind key="W-F4">
       <action name="GoToDesktop"/>
-    </keybind>
-    <keybind key="W-d">
-      <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="A-F4">
       <action name="Close"/>

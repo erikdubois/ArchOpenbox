@@ -30,4 +30,9 @@ nm-applet &
 conky -c ~/.config/conky/conky.conf
 plank &
 numlockx on
-pasystray &
+#pasystray &
+amixer -q sset Master 50%
+blueberry-tray &
+#redshift-gtk &
+#parcellite &
+#insync start &
