@@ -55,6 +55,13 @@ http://erikdubois.be/how-to-install-openbox-on-arch-linux/
 
 	export EDITOR=nano
 
+##Change from qwerty to azerty in openbox
+
+
+setxkbmap -model pc101 -layout be
+
+
+cp -R /etc/xdg/openbox/* ~/.config/
 
 
 
