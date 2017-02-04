@@ -1,4 +1,4 @@
-# ArchXfce
+# ArchOpenbox
 
 A collection of scripts for a fast an easy installation of all software, icons, themes, cursors, ... automatically.
 
@@ -28,7 +28,7 @@ More info can be found on http://erikdubois.be
 #Tutorials
 
 
-Installation of Arch Linux and consequently Budgie is documented on https://erikdubois.be
+Installation of Arch Linux is documented on https://erikdubois.be
 
 
 ##1. Arch installation
@@ -41,9 +41,9 @@ http://erikdubois.be/how-to-install-arch-linux/
 ##2. Desktop environment installation
 
 
-Budgie installation on Arch Linux can be found on this article
+This installation on Arch Linux can be found in this article
 
-http://erikdubois.be/how-to-install-budgie-on-arch-linux/
+http://erikdubois.be/how-to-install-openbox-on-arch-linux/
 
 
 #Remember
@@ -60,14 +60,14 @@ http://erikdubois.be/how-to-install-budgie-on-arch-linux/
 
 # Youtube sources
 
-Arch Linux Budgie playlist
+Arch Linux Openbox playlist
 
-https://www.youtube.com/playlist?list=PLlloYVGq5pS61C4jS9shFV62B_HseEAJS
+https://www.youtube.com/playlist?list=PLlloYVGq5pS58Uc7Dgnu-Fk1BsS5Nnk6p
 
 
-Showing all sardi and surfn icons on Archlinux Budgie
+Showing all sardi and surfn icons.
 
-https://www.youtube.com/watch?v=nrISx6JX258
+https://www.youtube.com/watch?v=EHjCRJ3FdG0
 
 
 
@@ -109,10 +109,3 @@ Share the knowledge.
 
 I share my knowledge at http://erikdubois.be
 ------------------------------------------------
-
-
-
-
-
-
-
