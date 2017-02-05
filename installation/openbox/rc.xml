@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
     <strength>10</strength>
@@ -40,7 +41,7 @@
   </placement>
   <theme>
     <name>Arc-Dark</name>
-    <titleLayout>NLIMC</titleLayout>
+    <titleLayout>LIMSC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -117,13 +118,11 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>1</number>
+    <number>2</number>
     <firstdesk>1</firstdesk>
     <names>
-      <!-- set names up here if you want to, like this:
-    <name>desktop 1</name>
-    <name>desktop 2</name>
-    -->
+      <name>desktop 1</name>
+      <name>desktop 2</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -177,6 +176,16 @@
     <chainQuitKey>C-g</chainQuitKey>
     <keybind key="C-A-Left">
       <action name="GoToDesktop"/>
+    </keybind>
+    <keybind key="C-A-N">
+      <action name="Execute">
+        <command>nemo --quit</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-w">
+      <action name="Execute">
+        <command>subl3</command>
+      </action>
     </keybind>
     <keybind key="W-KP_7">
       <action name="UnmaximizeFull"/>
@@ -911,6 +920,23 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
+    <application class="Firefox">
+      <desktop>1</desktop>
+      <monitor>1</monitor>
+      <action name="MaximizeFull"/>
+      <focus>yes</focus>
+    </application>
+    <application class="Spotify">
+      <desktop>1</desktop>
+      <monitor>2</monitor>
+      <action name="MaximizeFull"/>
+    </application>
+    <application class="Subl3">
+      <desktop>1</desktop>
+      <monitor>2</monitor>
+      <action name="MaximizeFull"/>
+      <focus>yes</focus>
+    </application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.

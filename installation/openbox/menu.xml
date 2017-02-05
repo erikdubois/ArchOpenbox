@@ -5,12 +5,11 @@
   <menu id="root-menu" label="Applications">
     <item label="File Manager" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/file-manager.svg"><action name="Execute"><command><![CDATA[xdg-open .]]></command></action></item>
     <item label="Terminal" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/terminal.svg"><action name="Execute"><command><![CDATA[gnome-terminal]]></command></action></item>
-    <item label="Firefox" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/web-browser.svg"><action name="Execute"><command><![CDATA[xdg-open http://]]></command></action></item>
+    <item label="Firefox" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/firefox.svg"><action name="Execute"><command><![CDATA[xdg-open http://]]></command></action></item>
   <separator label="Categories"/>
   <menu id="Accessories" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/applications-utilities.svg" label="Accessories">
     <item label="About Xfce" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/help-about.svg"><action name="Execute"><command><![CDATA[xfce4-about]]></command></action></item>
     <item label="Archive Manager" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/file-roller.svg"><action name="Execute"><command><![CDATA[file-roller]]></command></action></item>
-    <item label="Bulk Rename" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/Thunar.svg"><action name="Execute"><command><![CDATA[/usr/lib/Thunar/ThunarBulkRename]]></command></action></item>
     <item label="Catfish File Search" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/catfish.svg"><action name="Execute"><command><![CDATA[/usr/bin/catfish]]></command></action></item>
     <item label="compton" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/compton.svg"><action name="Execute"><command><![CDATA[compton --xrender-sync-fence]]></command></action></item>
     <item label="Disks" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/gnome-disks.svg"><action name="Execute"><command><![CDATA[gnome-disks]]></command></action></item>
@@ -18,21 +17,22 @@
     <item label="Font Viewer" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/preferences-desktop-font.svg"><action name="Execute"><command><![CDATA[gnome-font-viewer]]></command></action></item>
     <item label="Galculator" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/galculator.svg"><action name="Execute"><command><![CDATA[galculator]]></command></action></item>
     <item label="HP Device Manager" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/hp_logo.svg"><action name="Execute"><command><![CDATA[hp-toolbox]]></command></action></item>
-    <item label="Nemo" icon="/home/erik/.icons/Sardi-Mono-Numix-Colora/scalable/places/folder.svg"><action name="Execute"><command><![CDATA[nemo]]></command></action></item>
+    <item label="Nemo" icon="/home/erik/.icons/Sardi-Mono/scalable/places/folder.svg"><action name="Execute"><command><![CDATA[nemo]]></command></action></item>
     <item label="nitrogen" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/nitrogen.svg"><action name="Execute"><command><![CDATA[nitrogen]]></command></action></item>
+    <item label="Parcellite" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/parcellite.svg"><action name="Execute"><command><![CDATA[parcellite]]></command></action></item>
     <item label="Plank" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/plank.svg"><action name="Execute"><command><![CDATA[plank]]></command></action></item>
     <item label="Redshift" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/redshift.svg"><action name="Execute"><command><![CDATA[redshift-gtk]]></command></action></item>
     <item label="Root Terminal" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/gksu-root-terminal.svg"><action name="Execute"><command><![CDATA[gksu -l gnome-terminal]]></command></action></item>
     <item label="Screenshot" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/applets-screenshooter.svg"><action name="Execute"><command><![CDATA[gnome-screenshot --interactive]]></command></action></item>
     <item label="Terminal Emulator" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/utilities-terminal.svg"><action name="Execute"><command><![CDATA[exo-open --launch TerminalEmulator]]></command></action></item>
     <item label="Terminator" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/terminator.svg"><action name="Execute"><command><![CDATA[terminator]]></command></action></item>
-    <item label="Thunar File Manager" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/Thunar.svg"><action name="Execute"><command><![CDATA[thunar]]></command></action></item>
     <item label="Tweak Tool" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/gnome-tweak-tool.svg"><action name="Execute"><command><![CDATA[gnome-tweak-tool]]></command></action></item>
+    <item label="USB Image Writer" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/usb-creator.svg"><action name="Execute"><command><![CDATA[mintstick -m iso]]></command></action></item>
+    <item label="USB Stick Formatter" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/usb-creator.svg"><action name="Execute"><command><![CDATA[mintstick -m format]]></command></action></item>
     <item label="Variety" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/variety.svg"><action name="Execute"><command><![CDATA[variety]]></command></action></item>
   </menu>
   <menu id="Development" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/applications-development.svg" label="Development">
     <item label="CMake" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/CMakeSetup.svg"><action name="Execute"><command><![CDATA[cmake-gui]]></command></action></item>
-    <item label="Geany" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/geany.svg"><action name="Execute"><command><![CDATA[geany]]></command></action></item>
     <item label="Meld" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/meld.svg"><action name="Execute"><command><![CDATA[meld]]></command></action></item>
     <item label="Qt4 Assistant" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/assistant-qt4.svg"><action name="Execute"><command><![CDATA[assistant-qt4]]></command></action></item>
     <item label="Qt4 Designer" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/designer-qt4.svg"><action name="Execute"><command><![CDATA[designer-qt4]]></command></action></item>
@@ -95,7 +95,6 @@
     <item label="Display" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/cs-display.svg"><action name="Execute"><command><![CDATA[cinnamon-settings display]]></command></action></item>
     <item label="Effects" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/cs-desktop-effects.svg"><action name="Execute"><command><![CDATA[cinnamon-settings effects]]></command></action></item>
     <item label="Extensions" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/cs-extensions.svg"><action name="Execute"><command><![CDATA[cinnamon-settings extensions]]></command></action></item>
-    <item label="File Manager" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/system-file-manager.svg"><action name="Execute"><command><![CDATA[thunar-settings]]></command></action></item>
     <item label="Fonts" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/cs-fonts.svg"><action name="Execute"><command><![CDATA[cinnamon-settings fonts]]></command></action></item>
     <item label="General" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/cs-general.svg"><action name="Execute"><command><![CDATA[cinnamon-settings general]]></command></action></item>
     <item label="Graphics Tablet" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/cs-tablet.svg"><action name="Execute"><command><![CDATA[cinnamon-settings wacom]]></command></action></item>
@@ -103,7 +102,7 @@
     <item label="Keyboard and Mouse" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/input-keyboard.svg"><action name="Execute"><command><![CDATA[lxinput]]></command></action></item>
     <item label="Keyboard" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/cs-keyboard.svg"><action name="Execute"><command><![CDATA[cinnamon-settings keyboard]]></command></action></item>
     <item label="Login Window" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/mdmsetup.svg"><action name="Execute"><command><![CDATA[pkexec /usr/bin/mdmsetup]]></command></action></item>
-    <item label="Monitor Settings" icon="/home/erik/.icons/Sardi-Mono-Numix-Colora/scalable/places/video-display.svg"><action name="Execute"><command><![CDATA[lxrandr]]></command></action></item>
+    <item label="Monitor Settings" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/video-display.svg"><action name="Execute"><command><![CDATA[lxrandr]]></command></action></item>
     <item label="Mouse and Touchpad" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/cs-mouse.svg"><action name="Execute"><command><![CDATA[cinnamon-settings mouse]]></command></action></item>
     <item label="Nemo Compare Extension Preferences" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/gtk-preferences.svg"><action name="Execute"><command><![CDATA[nemo-compare-preferences]]></command></action></item>
     <item label="Network Connections" icon="/home/erik/.icons/Sardi-Mono/scalable/categories/preferences-system-network.svg"><action name="Execute"><command><![CDATA[nm-connection-editor]]></command></action></item>
@@ -133,31 +132,33 @@
   <menu id="System" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/applications-system.svg" label="System">
     <item label="Avahi Zeroconf Browser" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/network-wired.svg"><action name="Execute"><command><![CDATA[/usr/bin/avahi-discover]]></command></action></item>
     <item label="BleachBit" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/bleachbit.svg"><action name="Execute"><command><![CDATA[bleachbit]]></command></action></item>
-    <item label="Bulk Rename" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/Thunar.svg"><action name="Execute"><command><![CDATA[/usr/lib/Thunar/ThunarBulkRename]]></command></action></item>
     <item label="dconf Editor" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/dconf-editor.svg"><action name="Execute"><command><![CDATA[dconf-editor]]></command></action></item>
     <item label="Disk Usage Analyzer" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/baobab.svg"><action name="Execute"><command><![CDATA[baobab]]></command></action></item>
     <item label="GNOME System Monitor" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/utilities-system-monitor.svg"><action name="Execute"><command><![CDATA[gnome-system-monitor]]></command></action></item>
     <item label="GParted" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/gparted.svg"><action name="Execute"><command><![CDATA[/usr/bin/gparted_polkit]]></command></action></item>
     <item label="Grsync" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/grsync.svg"><action name="Execute"><command><![CDATA[/usr/bin/grsync -i]]></command></action></item>
-    <item label="Htop" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/htop.svg"><action name="Execute"><command><![CDATA[xterm -e 'htop']]></command></action></item>
+    <item label="Htop" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/htop.svg"><action name="Execute"><command><![CDATA[gnome-terminal -e 'htop']]></command></action></item>
     <item label="Login Window" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/mdmsetup.svg"><action name="Execute"><command><![CDATA[pkexec /usr/bin/mdmsetup]]></command></action></item>
     <item label="Manage Printing" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/cups.svg"><action name="Execute"><command><![CDATA[/usr/bin/xdg-open http://localhost:631/]]></command></action></item>
     <item label="New Login" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/mdmflexiserver.svg"><action name="Execute"><command><![CDATA[mdmflexiserver]]></command></action></item>
+    <item label="Power Statistics" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/org.gnome.PowerStats.svg"><action name="Execute"><command><![CDATA[gnome-power-statistics]]></command></action></item>
     <item label="Print Settings" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/printer.svg"><action name="Execute"><command><![CDATA[system-config-printer]]></command></action></item>
     <item label="System Monitor" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/utilities-system-monitor.svg"><action name="Execute"><command><![CDATA[gnome-system-monitor]]></command></action></item>
     <item label="System Profiler and Benchmark" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/hardinfo.svg"><action name="Execute"><command><![CDATA[hardinfo]]></command></action></item>
     <item label="Terminal" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/utilities-terminal.svg"><action name="Execute"><command><![CDATA[gnome-terminal]]></command></action></item>
     <item label="Terminator" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/terminator.svg"><action name="Execute"><command><![CDATA[terminator]]></command></action></item>
-    <item label="Thunar File Manager" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/Thunar.svg"><action name="Execute"><command><![CDATA[thunar]]></command></action></item>
+    <item label="USB Image Writer" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/system-run.svg"><action name="Execute"><command><![CDATA[mintstick -m iso]]></command></action></item>
+    <item label="USB Stick Formatter" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/system-run.svg"><action name="Execute"><command><![CDATA[mintstick -m format]]></command></action></item>
     <item label="Users and Groups" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/system-users.svg"><action name="Execute"><command><![CDATA[cinnamon-settings-users]]></command></action></item>
     <item label="UXTerm" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/xterm-color_48x48.svg"><action name="Execute"><command><![CDATA[uxterm]]></command></action></item>
     <item label="XTerm" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/xterm-color_48x48.svg"><action name="Execute"><command><![CDATA[xterm]]></command></action></item>
   </menu>
   <separator/>
   <menu id="Advanced Settings" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/gnome-settings.svg" label="Advanced Settings">
+    <item label="conky.conf" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/text-x-source.svg"><action name="Execute"><command><![CDATA[subl3 ~/.config/conky/conky.conf]]></command></action></item>
   <menu id="Obmenu-Generator" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/menu-editor.svg" label="Obmenu-Generator">
-    <item label="Menu Schema" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/text-x-source.svg"><action name="Execute"><command><![CDATA[geany ~/.config/obmenu-generator/schema.pl]]></command></action></item>
-    <item label="Menu Config" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/text-x-source.svg"><action name="Execute"><command><![CDATA[geany ~/.config/obmenu-generator/config.pl]]></command></action></item>
+    <item label="Menu Schema" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/text-x-source.svg"><action name="Execute"><command><![CDATA[subl3 ~/.config/obmenu-generator/schema.pl]]></command></action></item>
+    <item label="Menu Config" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/text-x-source.svg"><action name="Execute"><command><![CDATA[subl3 ~/.config/obmenu-generator/config.pl]]></command></action></item>
   <separator/>
     <item label="Generate a pipe menu" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/menu-editor.svg"><action name="Execute"><command><![CDATA[obmenu-generator -p]]></command></action></item>
     <item label="Generate a static menu" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/menu-editor.svg"><action name="Execute"><command><![CDATA[obmenu-generator -s -c]]></command></action></item>
@@ -168,9 +169,9 @@
   </menu>
   <menu id="Openbox" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/openbox.svg" label="Openbox">
     <item label="Reconfigure Openbox" icon="/home/erik/.icons/Sardi-Mono/scalable/apps/openbox.svg"><action name="Execute"><command><![CDATA[openbox --reconfigure]]></command></action></item>
-    <item label="Openbox Autostart" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/shellscript.svg"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/autostart]]></command></action></item>
-    <item label="Openbox RC" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/text-xml.svg"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/rc.xml]]></command></action></item>
-    <item label="Openbox Menu" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/text-xml.svg"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/menu.xml]]></command></action></item>
+    <item label="Openbox Autostart" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/shellscript.svg"><action name="Execute"><command><![CDATA[subl3 ~/.config/openbox/autostart]]></command></action></item>
+    <item label="Openbox RC" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/text-xml.svg"><action name="Execute"><command><![CDATA[subl3 ~/.config/openbox/rc.xml]]></command></action></item>
+    <item label="Openbox Menu" icon="/home/erik/.icons/Sardi-Mono/scalable/mimetypes/text-xml.svg"><action name="Execute"><command><![CDATA[subl3 ~/.config/openbox/menu.xml]]></command></action></item>
   </menu>
   </menu>
   <separator/>

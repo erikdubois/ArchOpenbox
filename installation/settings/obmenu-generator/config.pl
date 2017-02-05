@@ -92,6 +92,7 @@ our $CONFIG = {
                            },
   "missing_icon"        => "gtk-missing-image",
   "name_keys"           => ["Name"],
-  "terminal"            => "xterm",
+  "terminal"            => "gnome-terminal",
   "VERSION"             => 0.68,
+ ## "icon_dirs_first"     => "/home/erik/.icons/Sardi-Mono",
 }

@@ -46,6 +46,8 @@ firefox &
 
 spotify &
 
+# move the mouse out of the way
+unclutter &
 
 # THESE WILL AUTOSTART ON THEIR OWN
 #conky -c ~/.config/conky/conky.conf

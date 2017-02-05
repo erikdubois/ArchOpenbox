@@ -31,9 +31,9 @@ my $editor = $CONFIG->{editor};
 our $SCHEMA = [
 
     #          COMMAND                 LABEL                ICON
-    {item => ['xdg-open .',        'File Manager',      'file-manager']},
-    {item => ['gnome-terminal',             'Terminal',          'terminal']},
-    {item => ['xdg-open http://',  'Firefox',       'web-browser']},
+    {item => ['xdg-open .',        	'File Manager',      'file-manager']},
+    {item => ['gnome-terminal',     'Terminal',          'terminal']},
+    {item => ['xdg-open http://',  	'Firefox',       	'firefox']},
     #{item => ['gmrun',             'Run command',       'system-run']},
 
     {sep => 'Categories'},
@@ -75,7 +75,7 @@ our $SCHEMA = [
     {begin_cat => ['Advanced Settings', 'gnome-settings']},
 
         # Configuration files
-        #{item => ["$editor ~/.conkyrc",              'Conky RC',    'text-x-source']},
+        {item => ["$editor ~/.config/conky/conky.conf",              'conky.conf',    'text-x-source']},
         #{item => ["$editor ~/.config/tint2/tint2rc", 'Tint2 Panel', 'text-x-source']},
 
         # obmenu-generator category
