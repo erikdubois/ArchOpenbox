@@ -178,6 +178,13 @@
     <keybind key="C-A-Left">
       <action name="GoToDesktop"/>
     </keybind>
+    <keybind key="W-space">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
+      <action name="Raise"/>
+      <action name="Focus"/>
+    </keybind>
     <keybind key="C-A-Right">
       <action name="GoToDesktop"/>
     </keybind>

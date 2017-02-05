@@ -32,7 +32,7 @@ plank &
 numlockx on
 #pasystray &
 amixer -q sset Master 50%
-blueberry-tray &
+#blueberry-tray &
 #redshift-gtk &
 #parcellite &
 #insync start &

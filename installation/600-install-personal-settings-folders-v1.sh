@@ -34,39 +34,7 @@ echo "Creating all folders"
 [ -d $HOME"/.gimp-2.8/themes" ] || mkdir -p $HOME"/.gimp-2.8/themes"
 
 
-echo "Moving files to start i3wm"
-echo "Using Sardi icons, Arc theme and noto font from previous scripts"
-
-#cp settings/.bash_profile ~/
-#cp settings/.bashrc ~/
-#cp settings/.gtkrc-2.0 ~/
-#cp settings/.xinitrc ~/
-#cp settings/.zlogin ~/
-#cp settings/.zshrc ~/
-cp settings/bookmarks ~/.config/gtk-3.0/
-#cp settings/settings.ini ~/.config/gtk-3.0/
-
-
-echo "Copy/pasting Arc Colora themes to ~/.themes"
-
-cp -r Arc\ Colora/* ~/.themes/
-
-
-echo "Making sure gnome-screenshot saves in jpg - smaller in kb"
-
-sh settings/gnome-screenshot/set-gnome-screenshot-to-save-as-jpg.sh
-
-echo "Copy/pasting gimp scripts and themes"
-
-cp settings/gimp/scripts/* ~/.gimp-2.8/scripts/
-cp -r settings/gimp/themes/* ~/.gimp-2.8/themes/
-
-
 
 echo "################################################################"
-echo "#########       personal settings installed     ################"
+echo "#########       personal folders copied         ################"
 echo "################################################################"
-
-echo "Start firefox and then run script 700."
-echo
-echo "Do not run script 700 before starting firefox. You need to start firefox before you do."
