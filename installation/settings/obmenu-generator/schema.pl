@@ -27,13 +27,14 @@ require "$ENV{HOME}/.config/obmenu-generator/config.pl";
 ## Text editor
 my $editor = $CONFIG->{editor};
 
+
 our $SCHEMA = [
 
     #          COMMAND                 LABEL                ICON
     {item => ['xdg-open .',        'File Manager',      'file-manager']},
-    {item => ['xterm',             'Terminal',          'terminal']},
+    {item => ['gnome-terminal',             'Terminal',          'terminal']},
     {item => ['xdg-open http://',  'Firefox',       'web-browser']},
-    {item => ['gmrun',             'Run command',       'system-run']},
+    #{item => ['gmrun',             'Run command',       'system-run']},
 
     {sep => 'Categories'},
 

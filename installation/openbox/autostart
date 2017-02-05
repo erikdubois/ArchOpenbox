@@ -16,23 +16,67 @@
 #
 #xfce-mcs-manager &
 
+#Transparency and shadows added
 
 # Launch composite manager
 #compton -b -c &
 compton --config ~/.config/openbox/compton.conf &
+#xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 
-# launch xfce4-panel
+# starting plank
+plank &
+
+# xfce4 panel
 xfce4-panel &
 
-#azerty keyboard
+## GNOME PolicyKit authentication
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# setting azerty
 setxkbmap -model pc101 -layout be
+
+#network applet icon
 nm-applet &
-conky -c ~/.config/conky/conky.conf
-plank &
+
+amixer -q sset Master 30%
+
 numlockx on
-#pasystray &
-amixer -q sset Master 50%
+
+firefox &
+
+spotify &
+
+
+# THESE WILL AUTOSTART ON THEIR OWN
+#conky -c ~/.config/conky/conky.conf
 #blueberry-tray &
 #redshift-gtk &
 #parcellite &
 #insync start &
+#pasystray &
+
+
+
+
+# FOUND INTERESTING STUFF I DO NEED AT THE MOMENT
+## Turn on/off system beep.
+#xset b off
+
+## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
+## Adjust the values according to your preferances.
+#xset r rate 250 25
+
+## Disable CapsLock
+#setxkbmap -option ctrl:nocaps
+# alternative: use as compose key
+#setxkbmap -option compose:caps
+
+### TOUCHPAD: comment out the next two entries if you don't have one
+
+## Configure touchpad. See 'man synaptics' for more info.
+#synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
+
+## Disable touchpad while typing
+#syndaemon -i .5 -K -t -R -d &
+
+### TOUCHPAD END
