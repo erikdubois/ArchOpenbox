@@ -54,10 +54,6 @@ http://erikdubois.be/how-to-install-openbox-on-arch-linux/
 setxkbmap -model pc101 -layout be
 
 
-cp -R /etc/xdg/openbox/* ~/.config/
-
-
-
 # Youtube sources
 
 Arch Linux Openbox playlist
