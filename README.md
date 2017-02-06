@@ -42,7 +42,7 @@ http://erikdubois.be/how-to-install-arch-linux/
 ##2. Desktop environment installation
 
 
-This installation on Arch Linux can be found in this article
+The installation of the desktop environment on Arch Linux can be found in this article
 
 http://erikdubois.be/how-to-install-openbox-on-arch-linux/
 
