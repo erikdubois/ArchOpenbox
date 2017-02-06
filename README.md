@@ -49,15 +49,7 @@ http://erikdubois.be/how-to-install-openbox-on-arch-linux/
 
 #Remember
 
-
-##Setting nano instead of vi
-
-	export VISUAL=nano
-
-	export EDITOR=nano
-
 ##Change from qwerty to azerty in openbox
-
 
 setxkbmap -model pc101 -layout be
 
