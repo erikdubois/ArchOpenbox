@@ -106,8 +106,7 @@ echo "Reboot and select the proper desktop environment"
 echo "with the gauge symbol."
 
 echo "################################################################"
-echo "###################    T H E   E N D      ######################"
+echo "###################   core installed      ######################"
 echo "################################################################"
 
-echo "Type sudo reboot"
 

@@ -11,20 +11,17 @@ set -e
 #
 ##################################################################################################################
 
-echo "################################################################"
-echo "#########            obmenu-generator            ################"
-echo "################################################################"
 
 
+echo "Making sure firefox looks great in dark themes"
+echo "Firefox must have started once. The directory will not exist otherwise."
 
-[ -d $HOME"/.config/obmenu-generator" ] || mkdir -p $HOME"/.config/obmenu-generator"
+cp -r settings/firefox/chrome/ ~/.mozilla/firefox/*.default
 
-cp -r settings/obmenu-generator/ ~/.config/
-
-
+echo "Restart firefox to see the effect"
 
 
 echo "################################################################"
-echo "######    obmenu-generator  config installed    ################"
+echo "#########       firefox  settings installed     ################"
 echo "################################################################"
 
