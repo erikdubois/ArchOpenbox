@@ -19,7 +19,7 @@ echo "################################################################"
 
 [ -d $HOME"/.config/obmenu-generator" ] || mkdir -p $HOME"/.config/obmenu-generator"
 
-cp -r settings/obmenu-generator/* ~/.config/obmenu-generator/*
+cp -r settings/obmenu-generator/ ~/.config/
 
 
 
