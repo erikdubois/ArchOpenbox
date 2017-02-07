@@ -31,7 +31,7 @@ my $editor = $CONFIG->{editor};
 our $SCHEMA = [
 
     #          COMMAND                 LABEL                ICON
-    {item => ['xdg-open .',        	'File Manager',      'file-manager']},
+    {item => ['nemo',        	'File Manager',      'file-manager']},
     {item => ['gnome-terminal',     'Terminal',          'terminal']},
     {item => ['xdg-open http://',  	'Firefox',       	'firefox']},
     #{item => ['gmrun',             'Run command',       'system-run']},
