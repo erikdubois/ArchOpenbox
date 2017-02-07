@@ -15,9 +15,9 @@ set -e
 
 #echo "Copy/pasting Arc Colora themes to ~/.themes"
 
-#cp -r Arc\ Colora/* ~/.themes/
+cp -r ../Arc\ Colora/* ~/.themes/
 
-echo "no arc colora themes yet"
+
 
 # echo "################################################################"
 # echo "#########       arc colora themes copied        ################"
