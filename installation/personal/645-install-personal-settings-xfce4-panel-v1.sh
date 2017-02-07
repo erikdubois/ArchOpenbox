@@ -14,7 +14,6 @@ set -e
 
 
 cp -rf settings/xfce4 ~/.config/
-cp -rf settings/plank ~/.config/
 
 
 
