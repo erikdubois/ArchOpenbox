@@ -11,18 +11,20 @@ set -e
 #
 ##################################################################################################################
 
+echo "################################################################"
+echo "#########            obmenu-generator            ################"
+echo "################################################################"
 
 
-echo "Making sure firefox looks great in dark themes"
-echo "You should run this script after you rebooted and are in i3."
-echo "Firefox must have started once. The directory will not exist otherwise."
 
-cp -r openbox/ ~/.config/*
+[ -d $HOME"/.config/obmenu-generator" ] || mkdir -p $HOME"/.config/obmenu-generator"
 
-echo "Restart firefox to see the effect"
+cp -r settings/obmenu-generator/* ~/.config/obmenu-generator/*
+
+
 
 
 echo "################################################################"
-echo "#########       firefox  settings installed     ################"
+echo "######    obmenu-generator  config installed    ################"
 echo "################################################################"
 
