@@ -11,14 +11,17 @@ set -e
 #
 ##################################################################################################################
 
-echo "Copy/pasting scripts for feh/variety to work"
 
-cp settings/variety/variety.conf ~/.config/variety/
+echo "Copy/pasting settings.ini to .config/gtk-3.0"
 
-cp setting/variety/get_wallpaper ~/.config/variety/scripts/
+cp settings/themes/settings.ini ~/.config/gtk-3.0/
 
-cp setting/variety/set_wallpaper ~/.config/variety/scripts/
+echo "Copy/pasting gtkrc-2 to home folder"
+
+cp settings/themes/.gtkrc-2.0 ~/
+
 
 echo "################################################################"
-echo "#########       variety installed               ################"
+echo "#########     theme settings have been copied   ################"
 echo "################################################################"
+

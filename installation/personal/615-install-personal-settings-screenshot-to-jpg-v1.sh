@@ -11,14 +11,15 @@ set -e
 #
 ##################################################################################################################
 
-echo "Copy/pasting scripts for feh/variety to work"
+echo "################################################################"
+echo "#########       Screenshot settings             ################"
+echo "################################################################"
 
-cp settings/variety/variety.conf ~/.config/variety/
+echo "Making sure gnome-screenshot saves in jpg - smaller in kb"
 
-cp setting/variety/get_wallpaper ~/.config/variety/scripts/
+sh settings/gnome-screenshot/set-gnome-screenshot-to-save-as-jpg.sh
 
-cp setting/variety/set_wallpaper ~/.config/variety/scripts/
 
 echo "################################################################"
-echo "#########       variety installed               ################"
+echo "#########    screenshot settings  installed     ################"
 echo "################################################################"

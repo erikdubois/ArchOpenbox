@@ -11,14 +11,10 @@ set -e
 #
 ##################################################################################################################
 
-echo "Copy/pasting scripts for feh/variety to work"
 
-cp settings/variety/variety.conf ~/.config/variety/
+cp settings/bookmarks/.gtk-bookmarks ~/
 
-cp setting/variety/get_wallpaper ~/.config/variety/scripts/
-
-cp setting/variety/set_wallpaper ~/.config/variety/scripts/
 
 echo "################################################################"
-echo "#########       variety installed               ################"
+echo "#########            bookmarks added            ################"
 echo "################################################################"

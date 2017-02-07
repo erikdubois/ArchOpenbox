@@ -11,14 +11,12 @@ set -e
 #
 ##################################################################################################################
 
-echo "Copy/pasting scripts for feh/variety to work"
 
-cp settings/variety/variety.conf ~/.config/variety/
 
-cp setting/variety/get_wallpaper ~/.config/variety/scripts/
-
-cp setting/variety/set_wallpaper ~/.config/variety/scripts/
+echo "NOT APPLICABLE HERE "
+echo "Shortcuts are in Openbox file"
 
 echo "################################################################"
-echo "#########       variety installed               ################"
+echo "#########       keyboard shortcuts set          ################"
 echo "################################################################"
+
