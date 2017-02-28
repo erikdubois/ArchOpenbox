@@ -12,7 +12,7 @@
 ##################################################################################################################
 
 
-sudo mv /opt/sublime_text/Icon/ /opt/sublime_text/Icon-erik
+#sudo mv /opt/sublime_text/Icon/ /opt/sublime_text/Icon-erik
 sudo mv /opt/sublime_text_3/Icon/ /opt/sublime_text_3/Icon-erik
 
 sudo find /usr/share/icons/hicolor/ -name sublime-text.png -type f -delete
