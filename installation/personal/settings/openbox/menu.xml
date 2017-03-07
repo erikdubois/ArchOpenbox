@@ -399,13 +399,13 @@
 			<item label="Set Any Wallpaper">
 				<action name="Execute">
 					<command>
-                        nitrogen
+                        nitrogen ~/Dropbox/Apps/Desktoppr/
                     </command>
 				</action>
 			</item>
 			<item label="Set ArchLabs Wallpaper">
 				<action name="Execute">
-					<execute>~/.config/openbox/set-archlabs-wallpaper-dual-screen.sh</execute>
+					<execute>~/.config/openbox/scripts/set-archlabs-wallpaper-dual-screen.sh</execute>
 				</action>
 			</item>
 			<separator/>
