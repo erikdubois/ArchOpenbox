@@ -59,10 +59,8 @@ echo "Restart firefox to see the effect"
 # color: black;
 # }
 
-
-
-
-
+echo "if you get errors that means you need to start firefox first"
+echo "run this script again later"
 
 echo "################################################################"
 echo "#########       firefox  settings installed     ################"

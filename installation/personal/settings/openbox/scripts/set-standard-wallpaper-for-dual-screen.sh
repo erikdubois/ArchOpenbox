@@ -12,5 +12,5 @@ set -e
 ##################################################################################################################
 nemo --quit
 sleep 3
-nitrogen --set-zoom-fill --head=0 ~/.config/openbox/wallpapers/Wall4.png
-nitrogen --set-zoom-fill --head=1 ~/.config/openbox/wallpapers/Wall4.png
+nitrogen --set-zoom-fill --head=0 ~/.config/openbox/wallpapers/standard.jpg
+nitrogen --set-zoom-fill --head=1 ~/.config/openbox/wallpapers/standard.jpg

@@ -1,13 +1,14 @@
 [Added Associations]
 text/plain=sublime_text_3.desktop;leafpad.desktop;
 application/xml=geany.desktop;
-application/x-shellscript=leafpad.desktop;sublime_text_3.desktop;
+application/x-shellscript=sublime_text_3.desktop;leafpad.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/mailto=exo-mail-reader.desktop
 inode/directory=exo-file-manager.desktop
 x-scheme-handler/trash=exo-file-manager.desktop
 text/x-matlab=sublime_text_3.desktop;
+application/x-theme=sublime_text_3.desktop;panel-desktop-handler.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox.desktop
