@@ -64,11 +64,11 @@ plank &
 
 #just for initial start
 #only for dual monitors
-nitrogen --set-zoom-fill --head=0 /usr/share/backgrounds/Wall4.png
-nitrogen --set-zoom-fill --head=1 /usr/share/backgrounds/Wall4.png
+nitrogen --set-zoom-fill --head=0 ~/.config/openbox/wallpapers/Wall4.png
+nitrogen --set-zoom-fill --head=1 ~/.config/openbox/wallpapers/Wall4.png
 
 #only for single monitors
-#nitrogen --set-zoom-fill /usr/share/backgrounds/Wall4.png
+#nitrogen --set-zoom-fill ~/.config/openbox/wallpapers/Wall4.png
 
 
 ## Start the tint2 session (the default tint2 will run if no sessions have been set)
