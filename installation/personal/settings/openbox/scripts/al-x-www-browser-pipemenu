@@ -1,5 +1,5 @@
 #!/bin/bash
-#    bl-x-www-browser-pipemenu - an Openbox pipemenu for web browsers
+#    al-x-www-browser-pipemenu - an Openbox pipemenu for web browsers
 #    Copyright (C) 2012 Philip Newborough   <corenominal@corenominal.org>
 #    Copyright (C) 2013 Aleks-Daniel Jakimenko
 #    Copyright (C) 2015 damo    <damo@bunsenlabs.org>
@@ -21,7 +21,7 @@
 #   To change the entries shown in the Browsers pipemenu:
 #   edit ".config/openbox/pipemenus.rc"
 
-HELP='    bl-x-www-browser-pipemenu an Openbox Pipe Menu for web browsers
+HELP='    al-x-www-browser-pipemenu an Openbox Pipe Menu for web browsers
     It should normally be called from an openbox menu.
 
 Options (usually passed from the menu):
@@ -30,7 +30,7 @@ Options (usually passed from the menu):
     (the browser must be in the list defined in the pipemenu config file)
     (NOTE: Google Chrome will not appear in the menu on 32bit systems.)
 
-    If bl-x-www-browser-pipemenu is called with no options (the usual method),
+    If al-x-www-browser-pipemenu is called with no options (the usual method),
     it will output an xml openbox pipemenu
     for launching and installing web browsers.
 
@@ -47,16 +47,16 @@ do
     esac
 done
 
-BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
+BL_COMMON_LIBDIR='/usr/lib/archlabs/common'
 USR_CFG_DIR="$HOME/.config/openbox"
 
 KEY_URLS_GOOGLE=('https://dl-ssl.google.com/linux/linux_signing_key.pub')
 KEY_URLS_OPERA=('http://deb.opera.com/archive.key')
 
-declareDependencies wget
+#declareDependencies wget
 
-if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
-    echo $"Error: Failed to source bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+if ! . "$BL_COMMON_LIBDIR/al-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source al-include.cfg in $BL_COMMON_LIBDIR" >&2
     exit 1
 elif ! . "$USR_CFG_DIR/pipemenus.rc" 2> /dev/null; then
     echo $"Error: Failed to source pipemenus.rc in $USR_CFG_DIR" >&2
@@ -109,7 +109,7 @@ addAptKey() {
 setupGoogleChromeStable() {
     addAptKey "${KEY_URLS_GOOGLE[@]}" || return 1
     say 'Creating APT sources file...' 1
-    echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee '/etc/apt/sources.list.d/google-chrome.list'
+    echo 'yaourt -S google-chrome' 
 }
 
 setupOpera() {

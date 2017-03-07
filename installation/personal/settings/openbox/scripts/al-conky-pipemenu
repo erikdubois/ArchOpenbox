@@ -15,7 +15,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-HELP='    bl-conky-pipemenu an Openbox Pipe Menu for use with conky
+HELP='    al-conky-pipemenu an Openbox Pipe Menu for use with conky
     It should normally be called from an openbox menu.
 
 Options:
@@ -44,12 +44,12 @@ CONKYDEFAULT="$HOME/.conkyrc"
 CONKYPATH="$HOME/.config/conky"
 CSESSIONFILE="$CONKYPATH/conky-sessionfile"
 SESSIONS="$CONKYPATH/saved-sessions"
-CZEN="bl-conkyzen"
+CZEN="al-conkyzen"
 CSESSION="al-conky-session"
 HELPFILE="/usr/share/archlabs/docs/helpfile-conkyzen.txt"
 
-if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
-    echo "Error: Failed to source bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+if ! . "$BL_COMMON_LIBDIR/al-include.cfg" 2> /dev/null; then
+    echo "Error: Failed to source al-include.cfg in $BL_COMMON_LIBDIR" >&2
     exit 1
 fi
 if [ ! -e "$CSESSIONFILE" ] 2> /dev/null ; then
@@ -102,7 +102,7 @@ loadSavedsessionSubmenu(){
 }
 
 loadPinMenu(){
-    if type bl-conkypin &>/dev/null;then
+    if type al-conkypin &>/dev/null;then
         menuItem "Pin moveable Conkys" "al-conkypin"
         menuSeparator
     fi

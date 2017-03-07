@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#    bl-tint2-pipemenu - an Openbox pipemenu for tint2 manipulation
-#    Copyright (C) 2015-2016 damo    <damo@bunsenlabs.org>
+#    al-tint2-pipemenu - an Openbox pipemenu for tint2 manipulation
+#    Copyright (C) 2015-2016 damo    <damo@archlabslabs.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -16,18 +16,18 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-HELP='    bl-tint2-pipemenu an Openbox Pipe Menu for tint2 manipulation
+HELP='    al-tint2-pipemenu an Openbox Pipe Menu for tint2 manipulation
     It should normally be called from an openbox menu.
 
 Options:
     -h --help   show this message
 
-    If bl-tint2-pipemenu is called with no options (the usual method),
+    If al-tint2-pipemenu is called with no options (the usual method),
     it will output an xml openbox pipemenu for handling tint2 sessions,
     and editing configuration files.
 
 For more information, see "man tint2"
-and "Help">"Tint2" in the BunsenLabs menu.
+and "Help">"Tint2" in the archlabsLabs menu.
 '
 # look for a help option somewhere
 for i in "$@"
@@ -40,20 +40,20 @@ do
     esac
 done
 
-BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
+BL_COMMON_LIBDIR='/usr/lib/archlabs/common'
 
 TINT2PATH="$HOME/.config/tint2"
 TINT2RC="$TINT2PATH/tint2rc"
-TZEN="bl-tint2zen"
+TZEN="al-tint2zen"
 
-if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
-    echo $"Error: Failed to source bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+if ! . "$BL_COMMON_LIBDIR/al-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source al-include.cfg in $AL_COMMON_LIBDIR" >&2
     exit 1
 fi
 
 loadTEditmenu(){
     menuSeparator
-    menuItem "Default tint2rc" "bl-text-editor $TINT2RC"
+    menuItem "Default tint2rc" "geany $TINT2RC"
     if [ "$(pidof tint2)" ];then
         menuSubmenu "RunningTint2" "Running Tint2s"
         pgrep -a tint2 | while read -r pid cmd; do
@@ -64,7 +64,7 @@ loadTEditmenu(){
                     TINT="$TINT2RC"
                     TINT2="Default tint2rc"
                 fi
-                menuItem "$TINT2" "bl-text-editor $TINT"
+                menuItem "$TINT2" "geany $TINT"
             fi
         done
         menuSubmenuEnd
@@ -73,8 +73,8 @@ loadTEditmenu(){
 
 getTint2s(){
     menuSubmenu "EditTint2" "Edit Tint2s"
-        if type bl-tint2edit &>/dev/null;then  # bl-tint2edit script found
-            menuItem "Tint2 Editor" "bl-tint2edit"
+        if type al-tint2edit &>/dev/null;then  # al-tint2edit script found
+            menuItem "Tint2 Editor" "al-tint2edit"
             loadTEditmenu
         else
             loadTEditmenu
@@ -83,15 +83,15 @@ getTint2s(){
 }
 
 loadChoosermenu(){
-    if type $TZEN &>/dev/null;then  # bl-tint2zen script found
+    if type $TZEN &>/dev/null;then  # al-tint2zen script found
         menuItem "Tint2 Chooser" "$TZEN"
     fi
 }
 
 loadRestartmenu(){
     if [ "$(pidof tint2)" ];then
-        if type bl-tint2restart &>/dev/null;then  # bl-tint2restart script found
-            menuItem "Restart Tint2" "bl-tint2restart"
+        if type al-tint2restart &>/dev/null;then  # al-tint2restart script found
+            menuItem "Restart Tint2" "al-tint2restart"
         fi
     fi
 }

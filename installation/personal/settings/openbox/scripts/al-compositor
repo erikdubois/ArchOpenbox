@@ -1,5 +1,5 @@
 #!/bin/bash
-#    bl-compositor: an Openbox Pipe Menu for use with compton compositor
+#    al-compositor: an Openbox Pipe Menu for use with compton compositor
 #    Copyright (C) 2012 Philip Newborough   <corenominal@corenominal.org>
 #    Copyright (C) 2013 Aleks-Daniel Jakimenko
 #    Copyright (C) 2015 John Crawley    <john@bunsenlabs.org>
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-HELP='    bl-compositor an Openbox Pipe Menu for use with compton compositor
+HELP='    al-compositor an Openbox Pipe Menu for use with compton compositor
     It should normally be called from an openbox menu.
 
 Options (usually passed from the menu):
@@ -29,7 +29,7 @@ Options (usually passed from the menu):
     --watch     restart the compositor whenever the config file is modified
     (--watch is useful for debugging)
 
-    If bl-compositor is called with no options (the usual method),
+    If al-compositor is called with no options (the usual method),
     it will output an xml openbox pipemenu for handling compositing.
 
 See ~/.config/compton.conf and "man compton" for configuration options.
@@ -47,10 +47,10 @@ done
 
 RESTART_ATTEMPTS=20 # times to try killall before reverting to -s KILL
 
-BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
+BL_COMMON_LIBDIR='/usr/lib/archlabs/common'
 
-if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
-    echo $"Error: Failed to source bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+if ! . "$BL_COMMON_LIBDIR/al-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source al-include.cfg in $BL_COMMON_LIBDIR" >&2
     exit 1
 fi
 
@@ -83,12 +83,12 @@ if [[ $1 = '--edit' ]]; then # Edit compton settings
     if type geany >/dev/null;then
         geany "$HOME/.config/compton.conf"
     else
-        x-terminal-emulator -T 'edit compton.conf' -e nano "$HOME/.config/compton.conf"
+        termite -T 'edit compton.conf' -e nano "$HOME/.config/compton.conf"
     fi
 elif [[ $1 = '--start' ]]; then
     if ! pidof compton > /dev/null; then
         $EXECXCOMP
-        bl-tint2restart || true
+        al-tint2restart || true
     else
         echo "$0 --start: compton already running" >&2
     fi

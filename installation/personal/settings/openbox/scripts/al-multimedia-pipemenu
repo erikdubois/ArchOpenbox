@@ -1,5 +1,5 @@
 #!/bin/bash
-#    bl-multimedia-pipemenu - an Openbox pipemenu for Multimedia applications
+#    al-multimedia-pipemenu - an Openbox pipemenu for Multimedia applications
 #    Copyright (C) 2012 Philip Newborough   <corenominal@corenominal.org>
 #    Copyright (C) 2015 damo    <damo@bunsenlabs.org>
 #    Copyright (C) 2015 John Crawley    <john@bunsenlabs.org>
@@ -20,7 +20,7 @@
 #   To change the entries shown in the Multimedia pipemenu:
 #   edit ".config/openbox/pipemenus.rc"
 
-HELP='    bl-multimedia-pipemenu an Openbox Pipe Menu for multimedia applications
+HELP='    al-multimedia-pipemenu an Openbox Pipe Menu for multimedia applications
     It should normally be called from an openbox menu.
 
 Options (usually passed from the menu):
@@ -28,7 +28,7 @@ Options (usually passed from the menu):
     --install   install a multimedia package
     (the package must be in the list defined in the pipemenu config file)
 
-    If bl-multimedia-pipemenu is called with no options (the usual method),
+    If al-multimedia-pipemenu is called with no options (the usual method),
     it will output an xml openbox pipemenu
     for launching and installing multimedia applications.
 
@@ -45,11 +45,11 @@ do
     esac
 done
 
-BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
+BL_COMMON_LIBDIR='/usr/lib/archlabs/common'
 USR_CFG_DIR="$HOME/.config/openbox"
 
-if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
-    echo $"Error: Failed to source bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+if ! . "$BL_COMMON_LIBDIR/al-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source al-include.cfg in $BL_COMMON_LIBDIR" >&2
     exit 1
 elif ! . "$USR_CFG_DIR/pipemenus.rc" 2> /dev/null; then
     echo $"Error: Failed to source pipemenus.rc in $USR_CFG_DIR" >&2

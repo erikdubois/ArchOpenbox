@@ -1,5 +1,5 @@
 #!/bin/bash
-#    bl-printing-pipemenu an Openbox pipemenu for configuring printing
+#    al-printing-pipemenu an Openbox pipemenu for configuring printing
 #    Copyright (C) 2012 Philip Newborough   <corenominal@corenominal.org>
 #    Copyright (C) 2013 Aleks-Daniel Jakimenko
 #    Copyright (C) 2015 John Crawley    <john@bunsenlabs.org>
@@ -17,14 +17,14 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-HELP='    bl-printing-pipemenu an Openbox Pipe Menu for configuring printing
+HELP='    al-printing-pipemenu an Openbox Pipe Menu for configuring printing
     It should normally be called from an openbox menu.
 
 Options (usually passed from the menu):
     -h --help   show this message
     --install   install printing support
 
-    If bl-printing-pipemenu is called with no options (the usual method),
+    If al-printing-pipemenu is called with no options (the usual method),
     it will output an xml openbox pipemenu
     for installing printing support and configuring printing.
 '
@@ -39,10 +39,10 @@ do
     esac
 done
 
-BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
+BL_COMMON_LIBDIR='/usr/lib/archlabs/common'
 
-if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
-    echo $"Error: Failed to source bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+if ! . "$BL_COMMON_LIBDIR/al-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source al-include.cfg in $BL_COMMON_LIBDIR" >&2
     exit 1
 fi
 

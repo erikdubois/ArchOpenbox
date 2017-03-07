@@ -1,5 +1,5 @@
 #!/bin/bash
-#    bl-dropbox-pipemenu: an Openbox pipemenu for use with Dropbox
+#    al-dropbox-pipemenu: an Openbox pipemenu for use with Dropbox
 #    Copyright (C) 2012 Philip Newborough <corenominal@corenominal.org>
 #    Copyright (C) 2013 Aleks-Daniel Jakimenko
 #    Copyright (C) 2015-2016  John Crawley <john@bunsenlabs.org>
@@ -25,13 +25,13 @@ USER_DBPY="$USER_DBPY_DIR/dropbox.py"
 
 USERDBDIR="$HOME/.dropbox-dist/"
 
-HELP='    bl-dropbox-pipemenu an Openbox Pipe Menu for use with dropbox
+HELP='    al-dropbox-pipemenu an Openbox Pipe Menu for use with dropbox
     It should normally be called from an openbox menu.
 
 Options:
     -h --help   show this message
 
-    If bl-dropbox-pipemenu is called with no options (the usual method),
+    If al-dropbox-pipemenu is called with no options (the usual method),
     it will output an xml openbox pipemenu for installing and using dropbox.
 
     For installation, the dropbox python utility dropbox.py
@@ -61,7 +61,7 @@ PROMPT_DELAY_VARIANTS=(FAlSE 0 FALSE 10 FALSE 20 FALSE 30 FALSE 40 FALSE 50 TRUE
 
 BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
 
-for i in bl-include.cfg yad-includes
+for i in al-include.cfg yad-includes
 do
     if ! . "$BL_COMMON_LIBDIR/$i" 2> /dev/null; then
         echo "Error: Failed to source $i in $BL_COMMON_LIBDIR" >&2
@@ -182,7 +182,8 @@ else
         menuItem 'Install Dropbox' "$0 --install-dropbox"
     else
         [[ -d $HOME/Dropbox ]] &&
-            menuItem 'Open Dropbox Folder' "bl-file-manager $HOME/Dropbox"
+            menuItem 'Open Dropbox Folder' "al-file-manager $HOME/Dropbox"
+            menuItem 'Open Dropbox Folder' "al-file-manager $HOME/Dropbox"
 
         if ! pidof dropbox > /dev/null; then
             menuItem 'Start Dropbox' "$0 --start-dropbox"
