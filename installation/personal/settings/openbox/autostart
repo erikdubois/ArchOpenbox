@@ -88,6 +88,8 @@ pasystray &
 ## Start the Conky session (the default conkyrc will run if no sessions have been set)
 #al-conky-session --autostart &
 
+conky -q &
+
 ## Start the battery applet
 #fdpowermon &
 
