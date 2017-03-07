@@ -1,0 +1,121 @@
+#!/bin/bash
+#    bl-compositor: an Openbox Pipe Menu for use with compton compositor
+#    Copyright (C) 2012 Philip Newborough   <corenominal@corenominal.org>
+#    Copyright (C) 2013 Aleks-Daniel Jakimenko
+#    Copyright (C) 2015 John Crawley    <john@bunsenlabs.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+HELP='    bl-compositor an Openbox Pipe Menu for use with compton compositor
+    It should normally be called from an openbox menu.
+
+Options (usually passed from the menu):
+    -h --help   show this message
+    --start     start the compositor and restart tint2, if running
+    --restart   restart the compositor, if running, and restart tint2
+    --stop      stop the compositor
+    --edit      open the compton config file in a text editor
+    --watch     restart the compositor whenever the config file is modified
+    (--watch is useful for debugging)
+
+    If bl-compositor is called with no options (the usual method),
+    it will output an xml openbox pipemenu for handling compositing.
+
+See ~/.config/compton.conf and "man compton" for configuration options.
+'
+# look for a help option somewhere
+for i in "$@"
+do
+    case "$i" in
+    -h|--help)
+        echo "$HELP"
+        exit 0
+        ;;
+    esac
+done
+
+RESTART_ATTEMPTS=20 # times to try killall before reverting to -s KILL
+
+BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
+
+if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+    exit 1
+fi
+
+declareDependencies compton
+
+# ------------- Set compton command options -----------------------------------
+EXECXCOMP='compton -b'
+if glxinfo | egrep -iq 'direct rendering: yes'; then
+    EXECXCOMP+=' --vsync opengl'
+fi
+
+forcekill_compton() {
+    killall -q compton
+    for (( i=0; i < RESTART_ATTEMPTS; i++ )); do
+        pidof compton > /dev/null ||
+            break
+
+        (( i == RESTART_ATTEMPTS - 1 )) &&
+            killall -q -S KILL compton
+
+        sleep 0.25
+    done
+}
+
+
+if [[ $1 = '--edit' ]]; then # Edit compton settings
+    [[ ! -f $HOME/.config/compton.conf ]] &&
+        cp '/etc/xdg/compton.conf' "$HOME/.config/compton.conf"
+
+    if type geany >/dev/null;then
+        geany "$HOME/.config/compton.conf"
+    else
+        x-terminal-emulator -T 'edit compton.conf' -e nano "$HOME/.config/compton.conf"
+    fi
+elif [[ $1 = '--start' ]]; then
+    if ! pidof compton > /dev/null; then
+        $EXECXCOMP
+        bl-tint2restart || true
+    else
+        echo "$0 --start: compton already running" >&2
+    fi
+elif [[ $1 = '--stop' ]]; then
+    forcekill_compton
+elif [[ $1 = '--restart' ]]; then
+    if pidof compton > /dev/null; then
+        forcekill_compton
+        "$0" --start
+    else # nothing to restart
+        echo "$0 --restart: compton is not running" >&2
+    fi
+elif [[ $1 = '--watch' ]]; then
+    while inotifywait -e close_write "$HOME/.config/compton.conf"; do
+        "$0" --restart
+    done
+else
+    # Output Openbox menu
+    menuStart
+    if ! pidof compton > /dev/null; then
+        menuItem 'Enable Compositing' "$0 --start"
+    else
+        menuItem 'Restart Compositing' "$0 --restart"
+        menuItem 'Disable Compositing' "$0 --stop"
+        menuSeparator
+    fi
+    menuItem 'Edit Compositing Settings' "$0 --edit"
+    menuEnd
+fi
+exit 0

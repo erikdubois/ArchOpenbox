@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="exit-menu" label="Exit">
+		<item label="Log out">
+			<action name="Execute">
+				<command>
+                    al-exit --logout
+                </command>
+			</action>
+		</item>
+		<item label="Suspend">
+			<action name="Execute">
+				<command>
+                    al-exit --suspend
+                </command>
+			</action>
+		</item>
+		<item label="Reboot">
+			<action name="Execute">
+				<command>
+                    al-exit --reboot
+                </command>
+			</action>
+		</item>
+		<item label="Power off">
+			<action name="Execute">
+				<command>
+                    al-exit --poweroff
+                </command>
+			</action>
+		</item>
+	</menu>
+	<menu id="root-menu" label="Openbox 3">
+		<item label="Terminal">
+			<action name="Execute">
+				<command>
+                    termite
+                </command>
+			</action>
+		</item>
+		<item label="Run Program">
+			<action name="Execute">
+				<command>
+                    gmrun
+                </command>
+			</action>
+		</item>
+		<item label="Kill Nemo">
+			<action name="Execute">
+				<execute>nemo --quit</execute>
+			</action>
+		</item>
+		<separator/>
+		<item label="Firefox">
+			<action name="Execute">
+				<execute>firefox</execute>
+			</action>
+		</item>
+		<item label="Thunar">
+			<action name="Execute">
+				<command>
+                    thunar
+                </command>
+			</action>
+		</item>
+		<item label="Sublime Text">
+			<action name="Execute">
+				<execute>subl3</execute>
+			</action>
+		</item>
+		<item label="Nemo">
+			<action name="Execute">
+				<execute>nemo</execute>
+			</action>
+		</item>
+		<item label="Text Editor">
+			<action name="Execute">
+				<command>
+                    geany
+                </command>
+			</action>
+		</item>
+		<item label="Media Player">
+			<action name="Execute">
+				<command>
+                    vlc
+                </command>
+			</action>
+		</item>
+		<separator/>
+		<menu id="accessories" label="Accessories">
+			<item label="Catfish File Search">
+				<action name="Execute">
+					<command>catfish</command>
+				</action>
+			</item>
+			<item label="URXVT Terminal">
+				<action name="Execute">
+					<command>urxvt</command>
+				</action>
+			</item>
+			<item label="Archive Manager">
+				<action name="Execute">
+					<command>file-roller</command>
+				</action>
+			</item>
+			<item label="Task Manager (htop)">
+				<action name="Execute">
+					<command>urxvt -T 'htop task manager' -e htop</command>
+				</action>
+			</item>
+			<item label="ALOB Themes Manager">
+				<action name="Execute">
+					<command>al-obthemes</command>
+				</action>
+			</item>
+		</menu>
+		<separator/>
+		<menu id="games" label="Games">
+			<item label="Minecraft">
+				<action name="Execute">
+					<command>minecraft</command>
+				</action>
+			</item>
+		</menu>
+		<menu id="graphics" label="Graphics">
+			<item label="Mirage">
+				<action name="Execute">
+					<command>mirage</command>
+				</action>
+			</item>
+			<item label="GIMP">
+				<action name="Execute">
+					<command>gimp</command>
+				</action>
+			</item>
+			<item label="Inkscape">
+				<action name="Execute">
+					<command>inkscape</command>
+				</action>
+			</item>
+			<item label="Viewnior">
+				<action name="Execute">
+					<command>viewnior</command>
+				</action>
+			</item>
+			<separator label="Screenshots"/>
+			<item label="Screenshot">
+				<action name="Execute">
+					<command>scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Screenshots/'</command>
+				</action>
+			</item>
+			<separator/>
+			<menu id="screenshot" label="Screenshooter">
+				<item label="Screenshot in 5">
+					<action name="Execute">
+						<command>scrot -d 5 'ARCHLabs.png' -e  'mv $f ~/Screenshots/ ; mirage ~/Screenshots/$f'</command>
+					</action>
+				</item>
+				<item label="Screenshot in 10">
+					<action name="Execute">
+						<command>scrot -d 10 'ARCHLabs.png' -e  'mv $f ~/Screenshots/ ; mirage ~/Screenshots/$f'</command>
+					</action>
+				</item>
+			</menu>
+		</menu>
+		<menu id="multimedia" label="Multimedia">
+			<item label="VLC">
+				<action name="Execute">
+					<command>vlc</command>
+				</action>
+			</item>
+			<item label="Audacious">
+				<action name="Execute">
+					<command>audacious</command>
+				</action>
+			</item>
+			<item label="SM Player">
+				<action name="Execute">
+					<command>smplayer</command>
+				</action>
+			</item>
+			<separator label="Editors"/>
+			<item label="Audacity">
+				<action name="Execute">
+					<command>audacity</command>
+				</action>
+			</item>
+			<item label="Openshot">
+				<action name="Execute">
+					<command>openshot-qt</command>
+				</action>
+			</item>
+			<separator label="Utilities"/>
+			<item label="XFBurn">
+				<action name="Execute">
+					<command>xfburn</command>
+				</action>
+			</item>
+			<item label="GTK Record-My-Desktop">
+				<action name="Execute">
+					<command>gtk-recordMyDesktop</command>
+				</action>
+			</item>
+		</menu>
+		<menu id="network" label="Network">
+			<item label="Chromium Browser">
+				<action name="Execute">
+					<command>chromium</command>
+				</action>
+			</item>
+			<item label="Firefox Browser">
+				<action name="Execute">
+					<command>firefox</command>
+				</action>
+			</item>
+			<item label="Opera Browser">
+				<action name="Execute">
+					<command>opera</command>
+				</action>
+			</item>
+			<item label="Filezilla FTP Client">
+				<action name="Execute">
+					<command>filezilla</command>
+				</action>
+			</item>
+			<item label="Transmission BitTorrent Client">
+				<action name="Execute">
+					<command>transmission-gtk</command>
+				</action>
+			</item>
+			<item label="HexChat IRC Client">
+				<action name="Execute">
+					<command>hexchat</command>
+				</action>
+			</item>
+			<item label="Remote Filesystems">
+				<action name="Execute">
+					<command>gigolo</command>
+				</action>
+			</item>
+			<separator label="Services"/>
+			<item label="Dropbox">
+				<action name="Execute">
+					<command>dropbox</command>
+				</action>
+			</item>
+		</menu>
+		<menu id="office" label="Office">
+			<menu id="office menu" label="Libre Office">
+				<item label="Libre Office Base">
+					<action name="Execute">
+						<command>libreoffice -base</command>
+					</action>
+				</item>
+				<item label="Libre Office Calc">
+					<action name="Execute">
+						<command>libreoffice -calc</command>
+					</action>
+				</item>
+				<item label="Libre Office Draw">
+					<action name="Execute">
+						<command>libreoffice -draw</command>
+					</action>
+				</item>
+				<item label="Libre Office Impress">
+					<action name="Execute">
+						<command>libreoffice -impress</command>
+					</action>
+				</item>
+				<item label="Libre Office Math">
+					<action name="Execute">
+						<command>libreoffice -math</command>
+					</action>
+				</item>
+				<item label="Libre Office Writer">
+					<action name="Execute">
+						<command>libreoffice -writer</command>
+					</action>
+				</item>
+				<item label="Libre Office Printer Admin">
+					<action name="Execute">
+						<command>libreoffice-printeradmin</command>
+					</action>
+				</item>
+			</menu>
+			<item label="Google Docs">
+				<action name="Execute">
+					<command>chromium https://drive.google.com/</command>
+				</action>
+			</item>
+			<item label="Gnumeric Spreadsheet">
+				<action name="Execute">
+					<command>gnumeric</command>
+				</action>
+			</item>
+			<item label="Calculator">
+				<action name="Execute">
+					<command>galculator</command>
+				</action>
+			</item>
+			<item label="Evince PDF Viewer">
+				<action name="Execute">
+					<command>evince</command>
+				</action>
+			</item>
+		</menu>
+		<separator/>
+		<menu execute="/usr/bin/al-places-pipemenu" id="pipe-placesmenu" label="Places"/>
+		<menu execute="/usr/bin/al-recent-files-pipemenu" id="pipe-recentfilesmenu" label="Recent Files"/>
+		<separator/>
+		<menu id="preferences" label="Preferences">
+			<item label="Keyboard Shortcuts">
+				<action name="Execute">
+					<execute>obkey</execute>
+				</action>
+			</item>
+			<item label="Aureola Conky">
+				<action name="Execute">
+					<execute>subl3 ~/.config/conky/conky.conf</execute>
+				</action>
+			</item>
+			<menu id="obConfig" label="Openbox">
+				<item label="Edit menu.xml">
+					<action name="Execute">
+						<command>
+                            geany ~/.config/openbox/menu.xml
+                        </command>
+					</action>
+				</item>
+				<item label="Edit rc.xml">
+					<action name="Execute">
+						<command>
+                            geany ~/.config/openbox/rc.xml
+                        </command>
+					</action>
+				</item>
+				<item label="Edit autostart">
+					<action name="Execute">
+						<command>
+                            geany ~/.config/openbox/autostart
+                        </command>
+					</action>
+				</item>
+				<separator/>
+				<item label="GUI Menu Editor">
+					<action name="Execute">
+						<command>
+                            obmenu
+                        </command>
+					</action>
+				</item>
+				<item label="GUI Config Tool">
+					<action name="Execute">
+						<command>
+                            obconf
+                        </command>
+					</action>
+				</item>
+				<item label="How to Edit Menu">
+					<action name="Execute">
+						<command>
+                            yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;How to Edit the Menu&quot; --filename=&quot;/usr/share/bunsen/docs/helpfile-menu.txt&quot; --width=900 --height=700 --fontname=Monospace
+                        </command>
+					</action>
+				</item>
+				<separator/>
+				<item label="Reconfigure">
+					<action name="Reconfigure"/>
+				</item>
+				<item label="Restart">
+					<action name="Restart"/>
+				</item>
+			</menu>
+			<menu execute="al-compositor" id="CompositingPipeMenu" label="Compositor"/>
+			<menu execute="/usr/bin/al-conky-pipemenu" id="pipe-conkymenu" label="Conky"/>
+			<menu execute="/usr/bin/al-tint2-pipemenu" id="pipe-tint2menu" label="Tint2"/>
+			<item label="Tint2conf">
+				<action name="Execute">
+					<execute>tint2conf</execute>
+				</action>
+			</item>
+			<separator/>
+			<item label="LX Appearance">
+				<action name="Execute">
+					<command>
+                        lxappearance
+                    </command>
+				</action>
+			</item>
+			<item label="XFCE4 Appearance">
+				<action name="Execute">
+					<command>
+                        xfce4-appearance-settings
+                    </command>
+				</action>
+			</item>
+			<item label="Oomox">
+				<action name="Execute">
+					<command>
+                        oomox-gui
+                    </command>
+				</action>
+			</item>
+			<item label="LightDM Appearance">
+				<action name="Execute">
+					<command>
+                        gksudo lightdm-gtk-greeter-settings
+                    </command>
+				</action>
+			</item>
+			<item label="Choose Wallpaper">
+				<action name="Execute">
+					<command>
+                        nitrogen
+                    </command>
+				</action>
+			</item>
+			<item label="Notifications">
+				<action name="Execute">
+					<command>xfce4-notifyd-config</command>
+				</action>
+			</item>
+			<separator/>
+			<item label="Power Management">
+				<action name="Execute">
+					<command>
+                        xfce4-power-manager-settings
+                    </command>
+				</action>
+			</item>
+			<menu id="dmenuconfig" label="dmenu">
+				<item label="Edit Start-up Script">
+					<action name="Execute">
+						<command>
+                            geany ~/.config/dmenu/dmenu-bind.sh
+                        </command>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<command>
+                            termite -T 'man dmenu' -e man dmenu
+                        </command>
+					</action>
+				</item>
+			</menu>
+			<menu id="gmrunconfig" label="gmrun">
+				<item label="Edit Config File">
+					<action name="Execute">
+						<command>
+                            geany ~/.gmrunrc
+                        </command>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<command>
+                            termite -T 'man gmrun' -e man gmrun
+                        </command>
+					</action>
+				</item>
+			</menu>
+			<menu id="DisplaySettings" label="Display">
+				<item label="ARandR Screen Layout Editor">
+					<action name="Execute">
+						<command>
+                            arandr
+                        </command>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man xrandr">
+					<action name="Execute">
+						<command>
+                            urxvtsyn -T 'man xrandr' -e man xrandr
+                        </command>
+					</action>
+				</item>
+			</menu>
+		</menu>
+		<menu id="system" label="System">
+			<menu execute="/usr/bin/al-printing-pipemenu" id="PrintingPipeMenu" label="Printers"/>
+			<menu id="install" label="ARCHLabs Extras">
+				<separator label="Install Scripts"/>
+				<item label="Install Audacious Player">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/audacious.sh</execute>
+					</action>
+				</item>
+				<item label="Install Audacity">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/audacity.sh</execute>
+					</action>
+				</item>
+				<item label="Install Blender">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/blender.sh</execute>
+					</action>
+				</item>
+				<item label="Install Chromium Browser">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/chromium.sh</execute>
+					</action>
+				</item>
+				<item label="Install Dropbox">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/dropbox.sh</execute>
+					</action>
+				</item>
+				<item label="Install Extra Codecs">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/codecs.sh</execute>
+					</action>
+				</item>
+				<item label="Install Filezilla FTP Client">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/filezilla.sh</execute>
+					</action>
+				</item>
+				<item label="Install Firefox Browser">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/firefox.sh</execute>
+					</action>
+				</item>
+				<item label="Install Gigolo">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/gigolo.sh</execute>
+					</action>
+				</item>
+				<item label="Install The Gimp">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/gimp.sh</execute>
+					</action>
+				</item>
+				<item label="Install Gnome MPlayer">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/gnome-mplayer.sh</execute>
+					</action>
+				</item>
+				<item label="Install GTK Record My Desktop">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/gtk-recordmydesktop.sh</execute>
+					</action>
+				</item>
+				<item label="Install Inkscape">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/inkscape.sh</execute>
+					</action>
+				</item>
+				<item label="Install Libre Office">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/libreoffice.sh</execute>
+					</action>
+				</item>
+				<item label="Install Minecraft">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/minecraft.sh</execute>
+					</action>
+				</item>
+				<item label="Install Openshot">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/openshot.sh</execute>
+					</action>
+				</item>
+				<item label="Install Opera Browser">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/opera.sh</execute>
+					</action>
+				</item>
+				<item label="Install XFCE4-Screenshooter">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/screenshooter.sh</execute>
+					</action>
+				</item>
+				<item label="Install SMPlayer">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/smplayer.sh</execute>
+					</action>
+				</item>
+				<item label="Install View Nior">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/viewnior.sh</execute>
+					</action>
+				</item>
+				<item label="Install VNC Server">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/vnc-server.sh</execute>
+					</action>
+				</item>
+				<item label="Install XFBurn">
+					<action name="Execute">
+						<execute>termite -e /usr/bin/xfburn.sh</execute>
+					</action>
+				</item>
+			</menu>
+			<separator/>
+			<item label="Octopi Package Manager">
+				<action name="Execute">
+					<command>
+                        octopi
+                    </command>
+				</action>
+			</item>
+			<separator/>
+			<item label="File Manager As Root">
+				<action name="Execute">
+					<command>
+                        gksudo thunar
+                    </command>
+				</action>
+			</item>
+			<item label="Text Editor As Root">
+				<action name="Execute">
+					<command>
+                        gksudo geany
+                    </command>
+				</action>
+			</item>
+			<separator/>
+			<item label="Login Settings">
+				<action name="Execute">
+					<command>
+                        gksudo geany /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
+                    </command>
+				</action>
+			</item>
+			<item label="GParted">
+				<action name="Execute">
+					<command>
+                        gksudo gparted
+                    </command>
+				</action>
+			</item>
+		</menu>
+		<separator/>
+		<menu execute="/usr/bin/al-help-pipemenu" id="help" label="Help &amp; Resources"/>
+		<menu execute="al-kb-pipemenu" id="keybinds" label="Display Keybinds"/>
+		<separator/>
+		<item label="Lock Screen">
+			<action name="Execute">
+				<command>
+                   slimlock
+                </command>
+			</action>
+		</item>
+		<item label="Exit">
+			<action name="Execute">
+				<execute>oblogout</execute>
+			</action>
+		</item>
+	</menu>
+</openbox_menu>

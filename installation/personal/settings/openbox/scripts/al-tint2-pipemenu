@@ -1,0 +1,103 @@
+#!/bin/bash
+
+#    bl-tint2-pipemenu - an Openbox pipemenu for tint2 manipulation
+#    Copyright (C) 2015-2016 damo    <damo@bunsenlabs.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+HELP='    bl-tint2-pipemenu an Openbox Pipe Menu for tint2 manipulation
+    It should normally be called from an openbox menu.
+
+Options:
+    -h --help   show this message
+
+    If bl-tint2-pipemenu is called with no options (the usual method),
+    it will output an xml openbox pipemenu for handling tint2 sessions,
+    and editing configuration files.
+
+For more information, see "man tint2"
+and "Help">"Tint2" in the BunsenLabs menu.
+'
+# look for a help option somewhere
+for i in "$@"
+do
+    case "$i" in
+    -h|--help)
+        echo "$HELP"
+        exit 0
+        ;;
+    esac
+done
+
+BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
+
+TINT2PATH="$HOME/.config/tint2"
+TINT2RC="$TINT2PATH/tint2rc"
+TZEN="bl-tint2zen"
+
+if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+    exit 1
+fi
+
+loadTEditmenu(){
+    menuSeparator
+    menuItem "Default tint2rc" "bl-text-editor $TINT2RC"
+    if [ "$(pidof tint2)" ];then
+        menuSubmenu "RunningTint2" "Running Tint2s"
+        pgrep -a tint2 | while read -r pid cmd; do
+            if [[ ${cmd%% *} = tint2 ]]; then
+                TINT=${cmd##* }
+                TINT2=${TINT#$HOME/.config/}
+                if [[ $TINT = tint2 ]];then
+                    TINT="$TINT2RC"
+                    TINT2="Default tint2rc"
+                fi
+                menuItem "$TINT2" "bl-text-editor $TINT"
+            fi
+        done
+        menuSubmenuEnd
+    fi
+}
+
+getTint2s(){
+    menuSubmenu "EditTint2" "Edit Tint2s"
+        if type bl-tint2edit &>/dev/null;then  # bl-tint2edit script found
+            menuItem "Tint2 Editor" "bl-tint2edit"
+            loadTEditmenu
+        else
+            loadTEditmenu
+        fi
+    menuSubmenuEnd
+}
+
+loadChoosermenu(){
+    if type $TZEN &>/dev/null;then  # bl-tint2zen script found
+        menuItem "Tint2 Chooser" "$TZEN"
+    fi
+}
+
+loadRestartmenu(){
+    if [ "$(pidof tint2)" ];then
+        if type bl-tint2restart &>/dev/null;then  # bl-tint2restart script found
+            menuItem "Restart Tint2" "bl-tint2restart"
+        fi
+    fi
+}
+
+menuStart "Tintmenu" "Tint2"
+loadChoosermenu
+loadRestartmenu
+getTint2s
+menuEnd

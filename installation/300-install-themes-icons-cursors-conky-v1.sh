@@ -14,8 +14,9 @@ set -e
 #making the tmpfs bigger with 1GB to ensure completion of scripts
 #https://wiki.archlinux.org/index.php/Tmpfs
 #this line was only necessary for vmware installations and virtualbox installations
+
 #but does not seem to hurt installations on ssd or hd.
-sudo mount -o remount,size=4G,noatime /tmp
+#sudo mount -o remount,size=4G,noatime /tmp
 
 # install awesome font for conky status bar
 
@@ -30,7 +31,7 @@ sh conky-aureola-v3.sh
 
 # Sardi-extra icons
 
-sh icons-sardi-extra-v3.sh
+sh icons-sardi-extra-v4.sh
 
 ###############################################################################################
 
@@ -42,19 +43,19 @@ sh icons-sardi-v3.sh
 
 # Surfn icons
 
-sh icons-surfn-v3.sh
+sh icons-surfn-v4.sh
 
 ###############################################################################################
 
 # Arc theme
 
-sh install-gtk-arc-theme-git-v1.sh
+sh install-arc-gtk-theme-v1.sh
 
 #############################################################################################
 
 # Plank themes
 
-sh plank-themes-v2.sh
+sh plank-themes-v3.sh
 
 ###############################################################################################
 

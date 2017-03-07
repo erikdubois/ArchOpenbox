@@ -1,0 +1,141 @@
+# Theme: CathexiS
+# Description: Simple, minimal, distraction free foundation for building your desktop experience...
+# Author: Samir Kahvedzic < akirapowered@gmail.com >
+# Web: http://samirkahvedzic.deviantart.com
+
+
+##############################################
+# Settings
+##############################################
+
+background yes
+
+# Use Xft?
+use_xft yes
+xftfont Coda:size=9
+xftalpha 1
+
+# Update interval in seconds
+update_interval 1.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+
+own_window_argb_visual yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 200 200
+maximum_width 200
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# border width
+border_width 1
+
+# border margins
+border_margin 5
+
+# Stippled borders?
+stippled_borders 0
+
+# Default colors and also border colors
+default_color 666666
+own_window_colour 262524
+default_shade_color 000000
+default_outline_color 828282
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 70
+gap_y 100
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer yes
+
+default_bar_size 200 3
+draw_graph_borders yes
+
+##############################################
+#  Output
+##############################################
+TEXT
+${color a7a7a7}${font Coda:size=40}${time %k:%M}${font}${color}
+${voffset -44}$alignr${time %a} 
+$alignr${time %D}
+
+${color a7a7a7}Kernel:${color}$alignr$kernel
+${color a7a7a7}UpTime:${color}$alignr$uptime  
+
+P R O C E S S O R
+${hr}
+${color a7a7a7}Cpu1:${color}${offset 30}${cpu cpu1}%${color}
+${cpugraph cpu1 20,85 556B2F 9ACD32}
+${voffset -54}${offset 112}${color a7a7a7}Cpu2:${color}${offset 30}${cpu cpu2}% ${color}
+$alignr${cpugraph cpu2 20,85 556B2F 9ACD32}
+${color a7a7a7}Cpu3:${color}${offset 30}${cpu cpu2}%${color}
+${cpugraph cpu2 20,85 556B2F 9ACD32}
+${voffset -54}${offset 112}${color a7a7a7}Cpu4:${color}${offset 30}${cpu cpu3}%${color}
+$alignr${cpugraph cpu3 20,85 556B2F 9ACD32}${color} 
+
+M E M O R Y
+${hr}
+${color a7a7a7}Ram:$alignr${color FEA63C}$mem${color}/${color B7CE42}$memmax${color}
+${membar}
+${color a7a7a7}Swap usage:$alignr${color FEA63C}$swap${color}/${color B7CE42}$swapfree${color}
+${swapbar}
+
+HDD
+${hr}
+${color a7a7a7}Root:$alignr${color FEA63C}${fs_used /}${color}/${color B7CE42}${fs_free /}${color}
+${fs_bar /}
+${color a7a7a7}Home:$alignr${color FEA63C}${fs_used /home}${color}/${color B7CE42}${fs_free /home}${color}
+${fs_bar /home}
+
+NETWORK
+${hr}
+${color a7a7a7}Up:${color} ${upspeed eth0}KB/s${color}
+${upspeedgraph eth0 20,85 556B2F 9ACD32}
+${color a7a7a7}Total:${color} ${totalup eth0}
+${voffset -70}${offset 94}${color a7a7a7}Down:${color} ${downspeed eth0}KB/s
+$alignr${downspeedgraph eth0 20,85 556B2F 9ACD32}${color}
+$alignr${color a7a7a7}Total:${color} ${totaldown eth0}

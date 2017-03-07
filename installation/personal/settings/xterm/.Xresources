@@ -1,0 +1,29 @@
+XTerm*foreground: 		rgb:b2/b2/b2
+XTerm*background: 		rgb:40/45/52
+XTerm*color0: 			rgb:28/28/28
+xterm*faceName: 		Noto Mono:size=15
+xterm*geometry:         100x30
+!xterm*boldMode:        false
+xterm*cutNewline:       false
+xterm*on4Clicks:        group
+xterm*on5Clicks:        page
+xterm*internalBorder:   1
+xterm*metaSendsEscape:  true
+xterm*colorBD:          #ffffff
+xterm*colorBDMode:      true
+xterm*cursorBlink:      false
+xterm*cursorColor:      green
+xterm*dynamiccolors: 	true
+xterm*utf8: 			1
+xterm*loginShell:       true
+xterm*charClass:        33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48,58:48,63:48,61:48,44:48,38:48,59:48
+xterm*jumpScroll:       true
+xterm*multiScroll:      true
+xterm*saveLines:        512
+
+! http://www.hypexr.org/linux_ruboff.php
+xterm.*backarrowKey: false
+xterm*ttyModes:      erase ^?
+xterm*VT100.Translations: \
+        #override <Key>BackSpace: string(0x7f) \n\
+<Key>Delete: string(0x1b) string("[3~")

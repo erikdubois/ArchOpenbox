@@ -28,67 +28,67 @@ sudo pacman -S --noconfirm --needed gvfs-smb
 # sudo systemctl restart ... if you run into trouble
 # testparm will check the conf file for errors
 
-# red hat samba sharing config 
+## red hat samba sharing config 
 
-echo "################################################################"
-echo "system-config-samba"
-echo "################################################################"
+#echo "################################################################"
+#echo "system-config-samba"
+#echo "################################################################"
 
 
-package="system-config-samba"
+#package="system-config-samba"
 
-#----------------------------------------------------------------------------------
+##----------------------------------------------------------------------------------
 
-#checking if application is already installed or else install with aur helpers
-if pacman -Qi $package &> /dev/null; then
+##checking if application is already installed or else install with aur helpers
+#if pacman -Qi $package &> /dev/null; then
 
-	echo "################################################################"
-	echo "################## "$package" is already installed"
-	echo "################################################################"
+	#echo "################################################################"
+	#echo "################## "$package" is already installed"
+	#echo "################################################################"
 
-else
+#else
 
-	#checking which helper is installed
-	if pacman -Qi packer &> /dev/null; then
+	##checking which helper is installed
+	#if pacman -Qi packer &> /dev/null; then
 
-		echo "Installing with packer"
-		packer -S --noconfirm --noedit  $package
+		#echo "Installing with packer"
+		#packer -S --noconfirm --noedit  $package
 
-	elif pacman -Qi pacaur &> /dev/null; then
+	#elif pacman -Qi pacaur &> /dev/null; then
 		
-		echo "Installing with pacaur"
-		pacaur -S --noconfirm --noedit  $package
+		#echo "Installing with pacaur"
+		#pacaur -S --noconfirm --noedit  $package
 		 	
-	elif pacman -Qi yaourt &> /dev/null; then
+	#elif pacman -Qi yaourt &> /dev/null; then
 
-		echo "Installing with yaourt"
-		yaourt -S --noconfirm $package
+		#echo "Installing with yaourt"
+		#yaourt -S --noconfirm $package
 			  	
-	fi
+	#fi
 
-	# Just checking if installation was successful
-	if pacman -Qi $package &> /dev/null; then
+	## Just checking if installation was successful
+	#if pacman -Qi $package &> /dev/null; then
 	
-	echo "################################################################"
-	echo "#########  "$package" has been installed"
-	echo "################################################################"
+	#echo "################################################################"
+	#echo "#########  "$package" has been installed"
+	#echo "################################################################"
 
-	else
+	#else
 
-	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	echo "!!!!!!!!!  "$package" has NOT been installed"
-	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-
-
-	fi
-
-fi
+	#echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	#echo "!!!!!!!!!  "$package" has NOT been installed"
+	#echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
 
+	#fi
+
+#fi
 
 
 
-echo "Run system-config-samba to set up shares"
+
+
+#echo "Run system-config-samba to set up shares"
 
 
 echo "################################################################"

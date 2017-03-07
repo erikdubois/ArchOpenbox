@@ -1,0 +1,26 @@
+[global_config]
+  enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  title_font = Monospace 15
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.8
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Monospace 15
+    icon_bell = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+    use_theme_colors = True

@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
     <strength>10</strength>
@@ -26,22 +25,22 @@
     <policy>Smart</policy>
     <!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
-    <!-- whether to place windows in the center of the free area found or
+    <!-- whether to place windows in the ceneter of the free area found or
        the top left corner -->
-    <monitor>Primary</monitor>
+    <monitor>Any</monitor>
     <!-- with Smart placement on a multi-monitor system, try to place new windows
-       on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
-       the active window is, 'Primary' - only on the primary monitor -->
+         on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
+         the active window is, 'Primary' - only on the primary monitor -->
     <primaryMonitor>1</primaryMonitor>
     <!-- The monitor where Openbox should place popup dialogs such as the
-       focus cycling popup, or the desktop switch popup.  It can be an index
-       from 1, specifying a particular monitor.  Or it can be one of the
-       following: 'Mouse' - where the mouse is, or
-                  'Active' - where the active window is -->
+         focus cycling popup, or the desktop switch popup.  It can be an index
+         from 1, specifying a particular monitor.  Or it can be one of the
+         following: 'Mouse' - where the mouse is, or
+                    'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Arc-Dark</name>
-    <titleLayout>LIMSC</titleLayout>
+    <name>ARCHLabs Bunsen Blackish GTK3</name>
+    <titleLayout>DSLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -53,10 +52,10 @@
       D: omnipresent (on all desktops).
   -->
     <keepBorder>yes</keepBorder>
-    <animateIconify>yes</animateIconify>
+    <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>Noto Sans</name>
-      <size>12</size>
+      <size>11</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -65,15 +64,15 @@
     </font>
     <font place="InactiveWindow">
       <name>Noto Sans</name>
-      <size>12</size>
+      <size>11</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>Italic</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>Noto Mono</name>
+      <name>Noto Sans</name>
       <size>12</size>
       <!-- font size in points -->
       <weight>Normal</weight>
@@ -92,7 +91,7 @@
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>Noto Sans</name>
-      <size>12</size>
+      <size>11</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -101,7 +100,7 @@
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>Noto Sans</name>
-      <size>12</size>
+      <size>11</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -121,33 +120,35 @@
     <number>2</number>
     <firstdesk>1</firstdesk>
     <names>
-      <name>desktop 1</name>
-      <name>desktop 2</name>
+      <name>&lt; 1 &gt;</name>
+      <name>&lt; 2 &gt;</name>
+      <name>3</name>
+      <name>4</name>
     </names>
-    <popupTime>875</popupTime>
+    <popupTime>735</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
-       desktops.  Set this to 0 to disable the popup. -->
+         desktops.  Set this to 0 to disable the popup. -->
   </desktops>
   <resize>
     <drawContents>yes</drawContents>
     <popupShow>Nonpixel</popupShow>
     <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
-    <!-- 'Center', 'Top', or 'Fixed' -->
+    <!-- 'Center' or 'Top' -->
     <popupFixedPosition>
       <!-- these are used if popupPosition is set to 'Fixed' -->
       <x>10</x>
       <!-- positive number for distance from left edge, negative number for
-         distance from right edge, or 'Center' -->
+           distance from right edge, or 'Center' -->
       <y>10</y>
       <!-- positive number for distance from top edge, negative number for
-         distance from bottom edge, or 'Center' -->
+           distance from bottom edge, or 'Center' -->
     </popupFixedPosition>
   </resize>
   <!-- You can reserve a portion of your screen where windows will not cover when
-     they are maximized, or when they are initially placed.
-     Many programs reserve space automatically, but you can use this in other
-     cases. -->
+       they are maximized, or when they are initially placed.
+       Many programs reserve space automatically, but you can use this in other
+       cases. -->
   <margins>
     <top>0</top>
     <bottom>0</bottom>
@@ -174,44 +175,14 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-    <keybind key="C-A-Left">
-      <action name="GoToDesktop"/>
-    </keybind>
-    <keybind key="C-A-N">
+    <keybind key="C-A-m">
       <action name="Execute">
-        <command>nemo --quit</command>
+        <command>xfce4-settings-manager</command>
       </action>
     </keybind>
-    <keybind key="C-A-w">
+    <keybind key="C-A-BackSpace">
       <action name="Execute">
-        <command>subl3</command>
-      </action>
-    </keybind>
-    <keybind key="W-KP_7">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <x>0</x>
-        <y>0</y>
-        <width>50%</width>
-        <height>50%</height>
-      </action>
-    </keybind>
-    <keybind key="W-KP_9">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <x>-0</x>
-        <y>0</y>
-        <width>50%</width>
-        <height>50%</height>
-      </action>
-    </keybind>
-    <keybind key="W-KP_3">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <x>-0</x>
-        <y>-0</y>
-        <width>50%</width>
-        <height>50%</height>
+        <command>openbox --restart</command>
       </action>
     </keybind>
     <keybind key="W-KP_1">
@@ -220,34 +191,6 @@
         <x>0</x>
         <y>-0</y>
         <width>50%</width>
-        <height>50%</height>
-      </action>
-    </keybind>
-    <keybind key="W-KP_5">
-      <action name="MaximizeFull"/>
-    </keybind>
-    <keybind key="W-KP_4">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-        <height>100%</height>
-      </action>
-    </keybind>
-    <keybind key="W-KP_6">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <x>-0</x>
-        <y>0</y>
-        <width>50%</width>
-        <height>100%</height>
-      </action>
-    </keybind>
-    <keybind key="W-KP_8">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <x>0</x>
-        <y>0</y>
-        <width>100%</width>
         <height>50%</height>
       </action>
     </keybind>
@@ -260,22 +203,61 @@
         <height>50%</height>
       </action>
     </keybind>
-    <keybind key="S-W-Down">
+    <keybind key="W-KP_3">
       <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>-0</y>
+        <width>50%</width>
+        <height>50%</height>
+      </action>
     </keybind>
-    <keybind key="W-f">
-      <action name="ToggleMaximizeFull"/>
+    <keybind key="W-KP_4">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
     </keybind>
-    <keybind key="S-W-d">
-      <action name="ToggleShowDesktop"/>
+    <keybind key="W-KP_5">
+      <action name="MaximizeFull"/>
     </keybind>
-    <keybind key="W-l">
-      <action name="SessionLogout"/>
+    <keybind key="W-KP_6">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
     </keybind>
-    <keybind key="S-W-q">
-      <action name="Execute">
-        <command>xkill</command>
+    <keybind key="W-KP_7">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>50%</height>
+      </action>
+    </keybind>
+    <keybind key="W-KP_8">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>100%</width>
+        <height>50%</height>
+      </action>
+    </keybind>
+    <keybind key="W-KP_9">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>50%</height>
       </action>
     </keybind>
     <keybind key="W-Right">
@@ -300,8 +282,8 @@
     <keybind key="W-Down">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <width>65%</width>
-        <height>65%</height>
+        <width>80%</width>
+        <height>80%</height>
       </action>
       <action name="MoveToCenter"/>
     </keybind>
@@ -336,23 +318,81 @@
       </action>
     </keybind>
     <keybind key="XF86AudioStop">
+      <keybind key="XF86MonBrightnessUp">
+        <action name="Execute">
+          <command>xbacklight +10</command>
+        </action>
+      </keybind>
+      <keybind key="XF86MonBrightnessDown">
+        <action name="Execute">
+          <command>xbacklight -10</command>
+        </action>
+      </keybind>
+    </keybind>
+    <keybind key="C-A-Left">
+      <action name="DesktopLeft"/>
+    </keybind>
+    <keybind key="C-A-Right">
+      <action name="DesktopRight"/>
+    </keybind>
+    <keybind key="A-t">
       <action name="Execute">
-        <command>playerctl stop</command>
+        <command>variety -t</command>
       </action>
     </keybind>
-    <keybind key="C-S-Escape">
+    <keybind key="A-f">
       <action name="Execute">
-        <command>gnome-system-monitor</command>
+        <command>variety -f</command>
       </action>
     </keybind>
-    <keybind key="Print">
+    <keybind key="A-p">
       <action name="Execute">
-        <command>scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'</command>
+        <command>variety -p</command>
       </action>
     </keybind>
-    <keybind key="C-Print">
+    <keybind key="A-Left">
       <action name="Execute">
-        <command>gnome-screenshot -i</command>
+        <command>variety -p</command>
+      </action>
+    </keybind>
+    <keybind key="A-n">
+      <action name="Execute">
+        <command>variety -n</command>
+      </action>
+    </keybind>
+    <keybind key="A-Right">
+      <action name="Execute">
+        <command>variety -n</command>
+      </action>
+    </keybind>
+    <keybind key="A-Down">
+      <action name="Execute">
+        <command>variety --resume</command>
+      </action>
+    </keybind>
+    <keybind key="A-Up">
+      <action name="Execute">
+        <command>variety --pause</command>
+      </action>
+    </keybind>
+    <keybind key="W-Pause">
+      <action name="Execute">
+        <command>oblogout</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-k">
+      <action name="Execute">
+        <command>obkey</command>
+      </action>
+    </keybind>
+    <keybind key="W-F1">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </keybind>
+    <keybind key="W-F2">
+      <action name="Execute">
+        <command>subl3</command>
       </action>
     </keybind>
     <keybind key="W-F3">
@@ -365,9 +405,9 @@
         <command>gimp</command>
       </action>
     </keybind>
-    <keybind key="W-F10">
+    <keybind key="W-F5">
       <action name="Execute">
-        <command>spotify</command>
+        <command>meld</command>
       </action>
     </keybind>
     <keybind key="W-F6">
@@ -375,20 +415,9 @@
         <command>vlc</command>
       </action>
     </keybind>
-    <keybind key="W-F5">
+    <keybind key="W-F7">
       <action name="Execute">
-        <command>meld</command>
-      </action>
-    </keybind>
-    <keybind key="W-F2">
-      <action name="Execute">
-        <command>subl3</command>
-      </action>
-    </keybind>
-    <keybind key="S-W-e">
-      <action name="Execute">
-        <command>systemctl poweroff</command>
-        <prompt>Powering the system off</prompt>
+        <command>virtualbox</command>
       </action>
     </keybind>
     <keybind key="W-F8">
@@ -396,9 +425,42 @@
         <command>nemo</command>
       </action>
     </keybind>
-    <keybind key="W-F7">
+    <keybind key="W-F9">
       <action name="Execute">
-        <command>virtualbox</command>
+        <command>evolution</command>
+      </action>
+    </keybind>
+    <keybind key="W-F10">
+      <action name="Execute">
+        <command>spotify</command>
+      </action>
+    </keybind>
+    <keybind key="S-W-q">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="C-S-Escape">
+      <action name="Execute">
+        <command>gnome-system-monitor</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-V">
+      <action name="Execute">
+        <command>vivaldi-stable</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-B">
+      <action name="Execute">
+        <command>nemo</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-W">
+      <action name="Execute">
+        <command>subl3</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-S">
+      <action name="Execute">
+        <command>spotify</command>
       </action>
     </keybind>
     <keybind key="C-A-C">
@@ -406,37 +468,40 @@
         <command>catfish</command>
       </action>
     </keybind>
-    <keybind key="S-W-Return">
-      <action name="Execute">
-        <command>nemo</command>
-      </action>
-    </keybind>
-    <keybind key="W-space">
-      <action name="ShowMenu">
-        <menu>root-menu</menu>
-      </action>
-      <action name="Raise"/>
-      <action name="Focus"/>
-    </keybind>
-    <keybind key="C-A-B">
-      <action name="Execute">
-        <command>nemo</command>
-      </action>
-    </keybind>
-    <keybind key="W-F1">
-      <action name="Execute">
-        <command>firefox</command>
-      </action>
-    </keybind>
     <keybind key="C-A-F">
       <action name="Execute">
         <command>firefox</command>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
-      <action name="GoToDesktop"/>
+    <keybind key="C-A-d">
+      <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="W-Return">
+      <action name="Execute">
+        <command>gnome-terminal</command>
+      </action>
+    </keybind>
+    <keybind key="S-W-Return">
+      <action name="Execute">
+        <command>nemo</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-N">
+      <action name="Execute">
+        <command>nemo --quit</command>
+      </action>
+    </keybind>
+    <keybind key="W-d">
+      <action name="Execute">
+        <command>dmenu_run -i -nb '#151617' -nf '#d8d8d8' -sb '#d8d8d8' -sf '#151617' -fn 'NotoMonoRegular:bold:pixelsize=18'</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-d">
+      <action name="Execute">
+        <command>dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-T">
       <action name="Execute">
         <command>gnome-terminal</command>
       </action>
@@ -447,29 +512,28 @@
     <keybind key="C-A-Down">
       <action name="GoToDesktop"/>
     </keybind>
-    <keybind key="C-A-T">
-      <action name="Execute">
-        <command>gnome-terminal</command>
-      </action>
-      <action name="MoveToCenter"/>
-    </keybind>
     <keybind key="S-A-Left">
-      <action name="SendToDesktop"/>
+      <action name="SendToDesktop">
+        <desktop>1</desktop>
+      </action>
     </keybind>
     <keybind key="S-A-Right">
-      <action name="SendToDesktop"/>
+      <action name="SendToDesktop">
+        <desktop>2</desktop>
+      </action>
     </keybind>
     <keybind key="S-A-Up">
-      <action name="SendToDesktop"/>
+      <action name="SendToDesktop">
+        <desktop>1</desktop>
+      </action>
     </keybind>
     <keybind key="S-A-Down">
-      <action name="SendToDesktop"/>
+      <action name="SendToDesktop">
+        <desktop>2</desktop>
+      </action>
     </keybind>
-    <keybind key="A-F4">
-      <action name="Close"/>
-    </keybind>
-    <keybind key="S-W-q">
-      <action name="Close"/>
+    <keybind key="W-b">
+      <action name="ToggleDecorations"/>
     </keybind>
     <keybind key="A-Escape">
       <action name="Lower"/>
@@ -481,89 +545,169 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
+    <keybind key="A-F8">
+      <action name="ToggleDecorations"/>
+    </keybind>
+    <keybind key="A-F2">
+      <action name="Execute">
+        <command>gmrun</command>
+        <startupnotify>
+          <enabled>yes</enabled>
+          <name>Run Program</name>
+        </startupnotify>
+      </action>
+    </keybind>
+    <keybind key="A-F3">
+      <action name="Execute">
+        <command>dmenu_run -i -nb '#151617' -nf '#d8d8d8' -sb '#d8d8d8' -sf '#151617' -fn 'NotoMonoRegular:bold:pixelsize=18'</command>
+      </action>
+    </keybind>
+    <keybind key="A-F4">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="A-F5">
+      <action name="Iconify"/>
+    </keybind>
+    <keybind key="A-F6">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="Print">
+      <action name="Execute">
+        <command>xfce4-screenshooter</command>
+      </action>
+    </keybind>
+    <keybind key="A-Print">
+      <action name="Execute">
+        <command>scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; bl-image-viewer ~/Pictures/screenshots/$f'</command>
+      </action>
+    </keybind>
+    <keybind key="C-Print">
+      <action name="Execute">
+        <command>gnome-screenshot -i</command>
+      </action>
+    </keybind>
     <keybind key="A-Tab">
       <action name="NextWindow"/>
     </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
     </keybind>
-    <keybind key="A-n">
+    <keybind key="W-S-Right">
+      <action name="DirectionalCycleWindows"/>
+    </keybind>
+    <keybind key="W-S-Left">
+      <action name="DirectionalCycleWindows"/>
+    </keybind>
+    <keybind key="W-S-Up">
+      <action name="DirectionalCycleWindows"/>
+    </keybind>
+    <keybind key="W-S-Down">
+      <action name="DirectionalCycleWindows"/>
+    </keybind>
+    <keybind key="W-f">
+      <action name="ToggleMaximizeFull"/>
+    </keybind>
+    <keybind key="W-s">
       <action name="Execute">
-        <command>variety -n</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-        </startupnotify>
+        <command>mintstick -m iso</command>
       </action>
     </keybind>
-    <keybind key="A-Up">
+    <keybind key="W-t">
       <action name="Execute">
-        <command>variety --pause</command>
+        <command>termite</command>
       </action>
     </keybind>
-    <keybind key="A-Down">
+    <keybind key="W-l">
       <action name="Execute">
-        <command>variety --resume</command>
+        <command>slimlock</command>
       </action>
     </keybind>
-    <keybind key="A-Right">
+    <keybind key="W-e">
       <action name="Execute">
-        <command>variety -n</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-        </startupnotify>
+        <command>geany</command>
       </action>
     </keybind>
-    <keybind key="A-p">
+    <keybind key="W-m">
       <action name="Execute">
-        <command>variety -p</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-        </startupnotify>
+        <command>audacious</command>
       </action>
     </keybind>
-    <keybind key="A-Left">
+    <keybind key="W-h">
       <action name="Execute">
-        <command>variety -p</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-        </startupnotify>
+        <command>urxvt -T 'htop task manager' -e htop</command>
       </action>
     </keybind>
-    <keybind key="A-f">
+    <keybind key="W-v">
       <action name="Execute">
-        <command>variety -f</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-        </startupnotify>
+        <command>pavucontrol</command>
       </action>
     </keybind>
-    <keybind key="A-t">
+    <keybind key="W-x">
       <action name="Execute">
-        <command>variety -t</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-        </startupnotify>
+        <command>oblogout</command>
       </action>
     </keybind>
-    <keybind key="W-d">
+    <keybind key="W-Escape">
       <action name="Execute">
-        <command>dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=18'</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-        </startupnotify>
+        <command>xkill</command>
       </action>
     </keybind>
-    <keybind key="W-F11">
-      <action name="Reconfigure"/>
+    <keybind key="W-Tab">
+      <action name="ShowMenu">
+        <menu>client-list-combined-menu</menu>
+      </action>
     </keybind>
-    <keybind key="S-W-r">
-      <action name="Reconfigure"/>
+    <keybind key="W-space">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
+    </keybind>
+    <keybind key="C-A-a">
+      <action name="Execute">
+        <command>xfce4-appfinder</command>
+      </action>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="GrowToEdgeEast"/>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="GrowToEdgeWest"/>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="GrowToEdgeSouth"/>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="GrowToEdgeNorth"/>
+    </keybind>
+    <keybind key="W-A-Left">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+      </action>
+    </keybind>
+    <keybind key="W-A-Right">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+        <width>50%</width>
+      </action>
+    </keybind>
+    <keybind key="A-r">
+      <action name="Resize"/>
+    </keybind>
+    <keybind key="A-m">
+      <action name="Move"/>
     </keybind>
   </keyboard>
   <mouse>
-    <dragThreshold>1</dragThreshold>
+    <dragThreshold>8</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
-    <doubleClickTime>500</doubleClickTime>
+    <doubleClickTime>300</doubleClickTime>
     <!-- in milliseconds (1000 = 1 second) -->
     <screenEdgeWarpTime>400</screenEdgeWarpTime>
     <!-- Time before changing desktops when the pointer touches the edge of the
@@ -628,11 +772,20 @@
       </mousebind>
     </context>
     <context name="Titlebar">
+      <mousebind action="Press" button="Left">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
       <mousebind action="Drag" button="Left">
         <action name="Move"/>
       </mousebind>
       <mousebind action="DoubleClick" button="Left">
-        <action name="ToggleMaximize"/>
+        <action name="ToggleMaximizeFull"/>
+      </mousebind>
+      <mousebind action="Press" button="Middle">
+        <action name="Lower"/>
+        <action name="FocusToBottom"/>
+        <action name="Unfocus"/>
       </mousebind>
       <mousebind action="Click" button="Up">
         <action name="if">
@@ -652,6 +805,13 @@
             <action name="Unshade"/>
             <action name="Raise"/>
           </then>
+        </action>
+      </mousebind>
+      <mousebind action="Press" button="Right">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="ShowMenu">
+          <menu>client-menu</menu>
         </action>
       </mousebind>
     </context>
@@ -675,6 +835,11 @@
       </mousebind>
     </context>
     <context name="Top">
+      <mousebind action="Press" button="Left">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
       <mousebind action="Drag" button="Left">
         <action name="Resize">
           <edge>top</edge>
@@ -682,6 +847,10 @@
       </mousebind>
     </context>
     <context name="Left">
+      <mousebind action="Press" button="Left">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
       <mousebind action="Drag" button="Left">
         <action name="Resize">
           <edge>left</edge>
@@ -689,6 +858,10 @@
       </mousebind>
     </context>
     <context name="Right">
+      <mousebind action="Press" button="Left">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
       <mousebind action="Drag" button="Left">
         <action name="Resize">
           <edge>right</edge>
@@ -696,10 +869,19 @@
       </mousebind>
     </context>
     <context name="Bottom">
+      <mousebind action="Press" button="Left">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
       <mousebind action="Drag" button="Left">
         <action name="Resize">
           <edge>bottom</edge>
         </action>
+      </mousebind>
+      <mousebind action="Press" button="Middle">
+        <action name="Lower"/>
+        <action name="FocusToBottom"/>
+        <action name="Unfocus"/>
       </mousebind>
       <mousebind action="Press" button="Right">
         <action name="Focus"/>
@@ -853,10 +1035,6 @@
         <action name="Focus"/>
         <action name="Raise"/>
       </mousebind>
-      <mousebind action="Press" button="Right">
-        <action name="Focus"/>
-        <action name="Raise"/>
-      </mousebind>
     </context>
     <context name="Root">
       <!-- Menus -->
@@ -898,11 +1076,14 @@
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
+    <!-- system menu files on Debian systems
+    <file>/var/lib/openbox/debian-menu.xml</file>
+    <file>debian-menu.xml</file> -->
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the
        menu is hidden again -->
-    <middle>no</middle>
+    <middle>yes</middle>
     <!-- center submenus vertically about the parent entry -->
     <submenuShowDelay>100</submenuShowDelay>
     <!-- time to delay before showing a submenu after hovering over the parent
@@ -914,28 +1095,24 @@
        entry in parent menu
        if this is a negative value, then the delay is infinite and the
        submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
+    <applicationIcons>yes</applicationIcons>
     <!-- controls if icons appear in the client-list-(combined-)menu -->
     <manageDesktops>yes</manageDesktops>
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-    <application class="Firefox">
-      <desktop>1</desktop>
-      <monitor>1</monitor>
-      <action name="MaximizeFull"/>
-      <focus>yes</focus>
+    <application name="Spotify">
+      <position force="yes">
+        <desktop>2</desktop>
+        <monitor>2</monitor>
+      </position>
+      <maximized>yes</maximized>
     </application>
-    <application class="Spotify">
-      <desktop>1</desktop>
-      <monitor>2</monitor>
-      <action name="MaximizeFull"/>
-    </application>
-    <application class="Subl3">
-      <desktop>1</desktop>
-      <monitor>2</monitor>
-      <action name="MaximizeFull"/>
-      <focus>yes</focus>
+    <application name="oblogout">
+      <position force="yes">
+        <monitor>1</monitor>
+      </position>
+      <fullscreen>yes</fullscreen>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
@@ -945,8 +1122,6 @@
 
   <application name="the window's _OB_APP_NAME property (see obxprop)"
               class="the window's _OB_APP_CLASS property (see obxprop)"
-          groupname="the window's _OB_APP_GROUP_NAME property (see obxprop)"
-         groupclass="the window's _OB_APP_GROUP_CLASS property (see obxprop)"
                role="the window's _OB_APP_ROLE property (see obxprop)"
               title="the window's _OB_APP_TITLE property (see obxprop)"
                type="the window's _OB_APP_TYPE property (see obxprob)..
@@ -965,7 +1140,7 @@
   # order that they appear in this list
 
 
-    # each rule element can be left out or set to 'default' to specify to not 
+    # each rule element can be left out or set to 'default' to specify to not
     # change that attribute of the window
 
     <decor>yes</decor>
@@ -982,24 +1157,13 @@
       # applications who refuse to behave
       <x>center</x>
       # a number like 50, or 'center' to center on screen. use a negative number
-      # to start from the right (or bottom for <y>), ie -50 is 50 pixels from
-      # the right edge (or bottom). use 'default' to specify using value
-      # provided by the application, or chosen by openbox, instead.
+      # to start from the right (or bottom for <y>), ie -50 is 50 pixels from the
+      # right edge (or bottom).
       <y>200</y>
       <monitor>1</monitor>
       # specifies the monitor in a xinerama setup.
       # 1 is the first head, or 'mouse' for wherever the mouse is
     </position>
-
-    <size>
-      # the size to make the window.
-      <width>20</width>
-      # a number like 20, or 'default' to use the size given by the application.
-      # you can use fractions such as 1/2 or percentages such as 75% in which
-      # case the value is relative to the size of the monitor that the window
-      # appears on.
-      <height>30%</height>
-    </size>
 
     <focus>yes</focus>
     # if the window should try be given focus when it appears. if this is set
@@ -1030,6 +1194,33 @@
   </application>
 
   # end of the example
+-->
+    <!--
+    <application class="Gimp" name="gimp" role="gimp-toolbox" type="utility">
+      <maximized>vertical</maximized>
+    </application>
+    <application class="Gimp" name="gimp" role="gimp-dock" type="utility">
+      <maximized>vertical</maximized>
+    </application>
+    <application class="Gimp" name="gimp" role="gimp-image-window" type="normal">
+      <position force="no">
+        <x>center</x>
+        <y>center</y>
+      </position>
+    </application>
+
+    <application class="Gimp" name="gimp-2.8" role="gimp-toolbox" type="utility">
+      <maximized>vertical</maximized>
+    </application>
+    <application class="Gimp" name="gimp-2.8" role="gimp-dock" type="utility">
+      <maximized>vertical</maximized>
+    </application>
+    <application class="Gimp" name="gimp-2.8" role="gimp-image-window" type="normal">
+      <position force="no">
+        <x>center</x>
+        <y>center</y>
+      </position>
+    </application>
 -->
   </applications>
 </openbox_config>

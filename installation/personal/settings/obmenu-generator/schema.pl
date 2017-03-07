@@ -31,13 +31,85 @@ my $editor = $CONFIG->{editor};
 our $SCHEMA = [
 
     #          COMMAND                 LABEL                ICON
-    {item => ['nemo',        	'File Manager',      'file-manager']},
-    {item => ['gnome-terminal',     'Terminal',          'terminal']},
-    {item => ['xdg-open http://',  	'Firefox',       	'firefox']},
+    #{item => ['xdg-open .',        'File Manager',      'file-manager']},
+    #{item => ['xterm',             'Terminal',          'terminal']},
+    #{item => ['xdg-open http://',  'Web Browser',       'web-browser']},
     #{item => ['gmrun',             'Run command',       'system-run']},
+    {item => ['nemo',        		'Nemo',      		 'file-manager']},
+    {item => ['thunar',        		'Thunar',      		 'file-manager']},
+    {item => ['gnome-terminal',     'Terminal',          'terminal']},
+    {item => ['firefox',  			'Firefox',       	 'firefox']},
+    {item => ['subl3',  			'Sublime Text',      'sublime-text']},
+    {item => ['geany',  			'Geany',       	 	 'geany']},
+    {item => ['nemo --quit',        'Kill Nemo',         'xkill-openbox']},
+    {item => ['slimlock', 'Lock Screen', 'log-out']},
+    {item => ['oblogout', 'Exit Openbox', 'exit']},
 
-    {sep => 'Categories'},
+    ## Custom advanced settings
+    {sep => "Settings"},
 
+
+    # Customize
+    {begin_cat => ['Customize', 'theme']},
+        {item => ['gpick',  'Gpick','gpick']},
+        {sep => undef},
+        {item => ["$editor ~/.config/conky/conky.conf",  'conky.conf',  'text-x-source']},
+        {sep => undef},
+        {item => ['obconf',  'obconf', 'theme']},
+        {item => ['lxappearance',  'Lxappearance','theme']},
+        {item => ['qtconfig-qt4',  'qtconfig-qt4', 'qtconfig-qt4']},
+        {item => ['xfce4-appearance-settings',  'xfce4-appearance', 'preferences-desktop-theme']},
+        {item => ['xfce4-settings-manager',  'xfce4-settings-manager', 'gnome-settings']},
+        {item => ['gksudo lightdm-gtk-greeter-settings',  'LightDM Appearance','theme']},
+        {sep => undef},
+        {item => ["$editor ~/.config/tint2/tint2rc", 'Edit tint2rc', 'text-x-source']},
+        #{item => ['tint2 &',  'start tint2', 'tint2']},
+        {item => ['tint2conf',  'tint2conf', 'tint2conf']},
+		{pipe => ['al-tint2-pipemenu', 'Tint2', 'tint2']},
+        {sep => undef},
+        {item => ['obkey',  'Keyboard Shorcuts', 'keyboard']},
+        {sep => undef},
+        {item => ["$editor ~/.config/compton.conf",  'Edit compton.config', 'compton']},
+        {pipe => ['al-compositor', 'Compton', 'compton']},
+        {sep => undef},
+        {pipe => ['al-printing-pipemenu', 'Printing', 'printer']},
+    {end_cat => undef},
+
+    # Openbox category
+    {begin_cat => ['Openbox', 'openbox']},
+        {item => ['openbox --restart',               	'Restart Openbox', 'openbox']},
+        {item => ['openbox --reconfigure',               'Reconfigure Openbox', 'openbox']},
+        {item => ['obconf',  							'obconf', 			'theme']},
+        {item => ["$editor ~/.config/openbox/rc.xml",    'Openbox RC',          'text-xml']},
+        {item => ["$editor ~/.config/openbox/menu.xml",  'Openbox Menu',        'text-xml']},
+        {item => ["$editor ~/.config/openbox/autostart",  'Openbox Autostart',        'text-xml']},
+    {end_cat => undef},
+
+
+    # obmenu-generator
+    {begin_cat => ['Obmenu-Generator', 'menu-editor']},
+        {item => ["$editor ~/.config/obmenu-generator/schema.pl", 'Menu Schema', 'text-x-source']},
+        {item => ["$editor ~/.config/obmenu-generator/config.pl", 'Menu Config', 'text-x-source']},
+        {sep  => undef},
+        {item => ['obmenu-generator -p',       'Generate a pipe menu',              'menu-editor']},
+        {item => ['obmenu-generator -s -c',    'Generate a static menu',            'menu-editor']},
+        {item => ['obmenu-generator -p -i',    'Generate a pipe menu with icons',   'menu-editor']},
+        {item => ['obmenu-generator -s -i -c', 'Generate a static menu with icons', 'menu-editor']},
+        {sep  => undef},
+        {item => ['obmenu-generator -d', 'Refresh Icon Set', 'gtk-refresh']},
+    {end_cat => undef},
+
+    {begin_cat => ['Usb', 'usb-creator-gtk']},
+    	{item => ["mintstick -m iso",  'Burn iso to usb', 'usb-creator-gtk']},
+    	{item => ["mintstick -m format",  'Format usb', 'usb-creator']},
+    {end_cat => undef},
+
+    {begin_cat => ['Help', 'info']},
+    	{pipe => ['al-kb-pipemenu', 'Keyboard Shortcuts', 'cs-keyboard']},
+    	{pipe => ['al-help-pipemenu', 'Information', 'info']},
+    {end_cat => undef},
+    
+    {sep => 'Applications'},
     #          NAME            LABEL                ICON
     {cat => ['utility',     'Accessories', 'applications-utilities']},
     {cat => ['development', 'Development', 'applications-development']},
@@ -63,53 +135,12 @@ our $SCHEMA = [
     #{end_cat   => undef},
 
     #            COMMAND     LABEL        ICON
-    #{pipe => ['obbrowser', 'Disk', 'drive-harddisk']},
-
+    {sep => "Recent"},
+    {pipe => ['al-places-pipemenu', 'Places', 'folder']},
+    {pipe => ['al-recent-files-pipemenu', 'Recent files', 'folder-recent']},
     ## Generic advanced settings
     #{sep       => undef},
     #{obgenmenu => ['Openbox Settings', 'openbox']},
     #{sep       => undef},
 
-    ## Custom advanced settings
-    {sep => undef},
-    {begin_cat => ['Advanced Settings', 'gnome-settings']},
-
-        # Configuration files
-        {item => ["$editor ~/.config/conky/conky.conf",              'conky.conf',    'text-x-source']},
-        #{item => ["$editor ~/.config/tint2/tint2rc", 'Tint2 Panel', 'text-x-source']},
-
-        # obmenu-generator category
-        {begin_cat => ['Obmenu-Generator', 'menu-editor']},
-            {item => ["$editor ~/.config/obmenu-generator/schema.pl", 'Menu Schema', 'text-x-source']},
-            {item => ["$editor ~/.config/obmenu-generator/config.pl", 'Menu Config', 'text-x-source']},
-
-            {sep  => undef},
-            {item => ['obmenu-generator -p',       'Generate a pipe menu',              'menu-editor']},
-            {item => ['obmenu-generator -s -c',    'Generate a static menu',            'menu-editor']},
-            {item => ['obmenu-generator -p -i',    'Generate a pipe menu with icons',   'menu-editor']},
-            {item => ['obmenu-generator -s -i -c', 'Generate a static menu with icons', 'menu-editor']},
-            {sep  => undef},
-
-            {item => ['obmenu-generator -d', 'Refresh Icon Set', 'gtk-refresh']},
-        {end_cat => undef},
-
-        # Openbox category
-        {begin_cat => ['Openbox', 'openbox']},
-            {item => ['openbox --reconfigure',               'Reconfigure Openbox', 'openbox']},
-            {item => ["$editor ~/.config/openbox/autostart", 'Openbox Autostart',   'shellscript']},
-            {item => ["$editor ~/.config/openbox/rc.xml",    'Openbox RC',          'text-xml']},
-            {item => ["$editor ~/.config/openbox/menu.xml",  'Openbox Menu',        'text-xml']},
-        {end_cat => undef},
-
-    {end_cat => undef},
-    {sep => undef},
-
-    ## The xscreensaver lock command
-    #{item => ['xscreensaver-command -lock', 'Lock', 'lock']},
-
-    ## This option uses the default Openbox's action "Exit"
-    {exit => ['Exit', 'exit']},
-
-    ## This uses the 'oblogout' menu
-    # {item => ['oblogout', 'Exit', 'exit']},
 ]

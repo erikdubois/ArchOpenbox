@@ -1,0 +1,37 @@
+# Cathexis theme for SLIM
+# Author : Samir Kahvedžić
+# Contact : akirapowered@gmail.com
+
+# Messages 
+msg_color               	#FEA63C
+msg_font                	Coda-Regular:size=9
+msg_x                   	10%
+msg_y                   	80%
+
+# Screen background style. Valid values: stretch, tile
+background_style        stretch
+
+# Input controls
+input_panel_x           	60%
+input_panel_y           	10%
+input_name_x            	87
+input_name_y            	55
+input_pass_x            	87
+input_pass_y            	77
+
+input_font          	Coda-Regular:size=9
+input_color		#86d90e
+input_bgcolor           	#111111
+input_fgcolor           	#666666
+
+
+#username_msg            
+#username_font	Verdana:size=14:bold
+#username_color	#B7CE42
+#username_x		354
+#username_y		127
+
+#password_msg		
+#password_color		#86d90e
+#password_x              	354
+#password_y              	170

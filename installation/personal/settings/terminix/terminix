@@ -1,0 +1,28 @@
+[/]
+focus-follow-mouse=true
+prompt-on-close=false
+auto-hide-mouse=true
+recent-session-files=['/home/erik/DATA/archlabs/installation/personal/settings/terminix/terminix-settings.json']
+quake-hide-headerbar=true
+warn-vte-config-issue=false
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+foreground-color='#A7A7A7'
+visible-name='Default'
+dim-color-set=false
+login-shell=true
+palette=['#1E1E1E', '#CF6A4C', '#8F9D6A', '#F9EE98', '#7587A6', '#9B859D', '#AFC4DB', '#A7A7A7', '#5F5A60', '#CF6A4C', '#8F9D6A', '#F9EE98', '#7587A6', '#9B859D', '#AFC4DB', '#FFFFFF']
+badge-color-set=false
+default-size-rows=30
+default-size-columns=90
+show-scrollbar=false
+use-system-font=false
+cursor-colors-set=false
+highlight-colors-set=false
+use-theme-colors=false
+bold-color-set=false
+font='Monospace 15'
+scrollback-unlimited=true
+background-color='#404045455252'
+background-transparency-percent=20
+dim-transparency-percent=3

@@ -1,0 +1,116 @@
+#!/bin/bash
+#    bl-libreoffice-pipemenu an Openbox Pipe Menu for use with LibreOffice
+#    Copyright (C) 2012 Philip Newborough   <corenominal@corenominal.org>
+#    Copyright (C) 2013 Aleks-Daniel Jakimenko
+#    Copyright (C) 2015 John Crawley    <john@bunsenlabs.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+HELP='    bl-libreoffice-pipemenu an Openbox Pipe Menu for use with LibreOffice
+    It should normally be called from an openbox menu.
+
+Options (usually passed from the menu):
+    -h --help   show this message
+    --install   install a part, or all, of the LibreOffice suite
+
+If bl-libreoffice-pipemenu is called with no options (the usual method),
+it will output an xml openbox pipemenu
+for launching and installing LibreOffice components.
+'
+# look for a help option somewhere
+for i in "$@"
+do
+    case "$i" in
+    -h|--help)
+        echo "$HELP"
+        exit 0
+        ;;
+    esac
+done
+
+BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
+
+if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to locate bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+    exit 1
+fi
+
+LO_APPS=('libreoffice-writer' 'libreoffice-calc' 'libreoffice-impress' 'libreoffice-draw' 'libreoffice-base')
+
+declare -A AppName AppStatus AppCmd
+for curApp in "${LO_APPS[@]}"; do
+    name="${curApp#libreoffice-}"
+    AppName[$curApp]="LibreOffice ${name^}"
+    AppCmd[$curApp]=lo$name
+    type "${AppCmd[$curApp]}" >/dev/null 2>&1 && AppStatus[$curApp]=installed
+done
+
+appExists() {
+    for curApp in "${LO_APPS[@]}"; do # if $packageName exists in LO_APPS array
+        [[ $curApp = "$1" ]] &&
+            return 0
+    done
+    say "Unable to install $1. There is no such application that I know of." 1 >&2
+    say "You can try one of these: ${LO_APPS[*]}" 2 >&2
+    return 1
+}
+
+if [[ $1 = --install ]]; then
+    packageName=$2
+    if [[ $packageName = bunsen-meta-libreoffice ]]
+    then
+        appName="LIBREOFFICE FULL SUITE"
+        terminalCheck -T "Install $appName" --install bunsen-meta-libreoffice
+        desc="This script will install the Full LibreOffice Suite"
+        promptInstall "$appName" "$desc" "$packageName"
+    else
+        appName=${AppName[$packageName]}
+        appExists "$packageName" || exit 1
+        terminalCheck -T "Install $appName" "$@"
+        desc="This script will install $appName (without recommends)."
+        promptInstall --no-install-recommends "$appName" "$desc" "$packageName"
+    fi
+
+elif [[ $1 ]]; then
+    echo "$0: no such option $*" >&2
+    exit 1
+
+else
+    # Pipemenu
+    menuStart
+
+    for curApp in "${LO_APPS[@]}"; do
+        if [[ ${AppStatus[$curApp]} = installed ]]; then
+            menuItem "${AppName[$curApp]}" "${AppCmd[$curApp]}"
+        fi
+    done
+    submenu_started=false
+    for curApp in "${LO_APPS[@]}"; do
+        if ! [[ ${AppStatus[$curApp]} = installed ]]; then
+            $submenu_started || menuSubmenu "lo-apps-install-submenu" "Install"
+            submenu_started=true
+            menuItem "Install ${AppName[$curApp]}" "$0 --install $curApp"
+        fi
+    done
+    if ! [[ $(dpkg-query --show --showformat='${db:Status-Abbrev;2}' libreoffice 2>/dev/null) = ii ]]
+    then
+        $submenu_started || menuSubmenu "lo-apps-install-submenu" "Install"
+        submenu_started=true
+        menuItem "Install Full LibreOffice Suite" "$0 --install bunsen-meta-libreoffice"
+    fi
+    $submenu_started && menuSubmenuEnd
+
+    menuEnd
+fi
+exit 0

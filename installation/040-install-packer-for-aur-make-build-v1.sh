@@ -8,23 +8,27 @@ set -e
 # AS ALLWAYS, KNOW WHAT YOU ARE DOING.
 #======================================================================================
 
+echo "################################################################"
+echo "####           checking if wget is installed                ####"
+echo "################################################################"
+
+
+
 sudo pacman -S wget --needed --noconfirm
 
-########################################
-########    P A C K E R         ########
-########################################
+echo "################################################################"
+echo "####                   packer installation                  ####"
+echo "################################################################"
 
 
 # source : http://www.ostechnix.com/install-packer-arch-linux-2/
 
 # straight from aur and github
-
-
 # checking you have everything you need
 # normally not needed
 # sudo pacman -S base-devel fakeroot jshon expac git wget --noconfirm
-
-#dependencies for packer
+# these are the dependencies for packer
+# they will be installed automatically
 
 
 

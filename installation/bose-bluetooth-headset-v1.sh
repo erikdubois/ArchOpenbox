@@ -24,5 +24,5 @@ echo "change with pavucontrol to have a2dp sink"
 
 
 echo "################################################################"
-echo "###################    T H E   E N D      ######################"
+echo "####       reboot and connect your bluetooth device         ####"
 echo "################################################################"

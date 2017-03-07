@@ -1,75 +1,42 @@
-#
-# These things are run when an Openbox X Session is started.
-# You may place a similar script in $HOME/.config/openbox/autostart
-# to run user-specific things<
-#
+## Openbox autostart
+## ====================
+## When you login to your BunsenLabs Openbox session, this autostart script
+## will be executed to set-up your environment and launch any applications
+## you want to run at startup.
+##
+## Note: some programs, such as 'nm-applet' are run via XDG autostart.
+## Run
+## /usr/lib/x86_64-linux-gnu/openbox-xdg-autostart --list
+## or
+## /usr/lib/i386-linux-gnu/openbox-xdg-autostart --list
+## to list any XDG autostarted programs.
+##
+## More information about this can be found at:
+## http://openbox.org/wiki/Help:Autostart
+##
+## If you do something cool with your autostart script and you think others
+## could benefit from your hack, please consider sharing it at:
+## http://forums.bunsenlabs.org (registration required)
+##
 
-# If you want to use GNOME config tools...
-#
-#if test -x /usr/lib/openbox/gnome-settings-daemon >/dev/null; then
-#  /usr/lib/openbox/gnome-settings-daemon &
-#elif which gnome-settings-daemon >/dev/null 2>&1; then
-#  gnome-settings-daemon &
-#fi
+### SETTINGS START
 
-# If you want to use XFCE config tools...
-#
-#xfce-mcs-manager &
-
-#Transparency and shadows added
-
-# Launch composite manager
-#compton -b -c &
-compton --config ~/.config/openbox/compton.conf &
-#xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
-
-# starting plank
-plank &
-
-# xfce4 panel
-xfce4-panel &
-
-## GNOME PolicyKit authentication
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# setting azerty
-setxkbmap -model pc101 -layout be
-
-#network applet icon
-nm-applet &
-
-amixer -q sset Master 30%
-
-numlockx on
-
-firefox &
-
-spotify &
-
-# move the mouse out of the way
-unclutter &
-
-# THESE WILL AUTOSTART ON THEIR OWN
-#conky -c ~/.config/conky/conky.conf
-#blueberry-tray &
-#redshift-gtk &
-#parcellite &
-#insync start &
-#pasystray &
-
-
-
-
-# FOUND INTERESTING STUFF I DO NEED AT THE MOMENT
 ## Turn on/off system beep.
-#xset b off
+xset b off
+
+numlockx on &
+
+xfsettingsd &
 
 ## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
 ## Adjust the values according to your preferances.
-#xset r rate 250 25
+xset r rate 250 25
+
+## Add keyboard mapping.
+#xmodmap -e "keysym Insert = Multi_key"
 
 ## Disable CapsLock
-#setxkbmap -option ctrl:nocaps
+setxkbmap -option ctrl:nocaps
 # alternative: use as compose key
 #setxkbmap -option compose:caps
 
@@ -82,3 +49,70 @@ unclutter &
 #syndaemon -i .5 -K -t -R -d &
 
 ### TOUCHPAD END
+
+### SETTINGS END
+
+## Compton
+## NOTE: composition must be started before tint2
+compton -b --config ~/.config/compton.conf &
+
+plank &
+
+## Set a wallpaper
+#(sleep 5;nitrogen --restore) &
+#variety will take care of that
+
+#just for initial start
+#only for dual monitors
+nitrogen --set-zoom-fill --head=0 /usr/share/backgrounds/Wall4.png
+nitrogen --set-zoom-fill --head=1 /usr/share/backgrounds/Wall4.png
+
+#only for single monitors
+#nitrogen --set-zoom-fill /usr/share/backgrounds/Wall4.png
+
+
+## Start the tint2 session (the default tint2 will run if no sessions have been set)
+tint2 &
+
+## Start PulseAudio
+## (This replaces /etc/xdg/autostart/pulseaudio.desktop
+## which is disabled by ~/.config/autostart/pulseaudio.desktop.)
+## NOTE: PulseAudio must be started before volumeicon
+al-start-pulseaudio-x11
+
+## Volume control for systray
+#(sleep 5; volumeicon) &
+amixer -D pulse sset Master '30%'
+pasystray &
+
+## Start the Conky session (the default conkyrc will run if no sessions have been set)
+#al-conky-session --autostart &
+
+## Start the battery applet
+#fdpowermon &
+
+## Start Clipboard manager
+clipit &
+
+#(sleep 2; volti) &
+
+(sleep 2; nm-applet) &
+
+#(sleep 2; gmrun) &
+
+#xscreensaver -no-splash &
+
+## al-welcome - post-installation script, will not run in a live session and
+## only runs once. Safe to remove.
+#(sleep 10; al-welcome --firstrun) &
+
+## al-fortune - have the system come up with a little adage (not yet enabled)
+#(sleep 120; al-fortune) &
+
+
+## GNOME PolicyKit authentication
+#/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+#disables energystar features and no f...ing screensaver
+xset -dpms; xset s off  &

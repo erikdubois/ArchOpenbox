@@ -1,0 +1,86 @@
+
+! URXVT FONTS
+!------------------------------------------------
+
+URxvt*font: xft:Inconsolata-Regular:pixelsize=14
+URxvt*boldFont: xft:Inconsolata-Bold:pixelsize=14
+URxvt*letterSpace: 0
+URxvt*allow_bold: true
+
+
+! URXVT ENABLE LINK SUPPORT
+!------------------------------------------------
+
+URxvt.perl-ext-common: default,matcher,tabbedex,vtwheel,clipboard
+!tabbed
+URxvt.matcher.button:   1
+URxvt.perl-ext:      default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher:   /usr/bin/google-chrome
+URxvt.url-select.underline: true
+
+!disable the fucking bell
+URxvt.insecure: 			false
+
+! URXVT COPY PASTE SHORTCUTS
+!------------------------------------------------
+
+URxvt.keysym.M-c: 			perl:clipboard:copy
+URxvt.keysym.M-v: 			perl:clipboard:pasteq
+
+! URXVT SCROLLBAR AND CURSOR STYLE
+!------------------------------------------------
+
+URxvt*saveLines: 			300000
+URxvt.scrollBar: 			false
+!URxvt*scrollstyle:			plain
+URxvt*cursorBlink: 			true
+URxvt*cursorUnderline: 		true
+URxvt*cursorColor: 			#4e9a06
+
+! URXVT TABS
+!------------------------------------------------
+
+URxvt.tabbedex.autohide: 	yes
+URxvt.tabbedex.tabbar-fg: 	2
+URxvt.tabbedex.tabbar-bg: 	0
+URxvt.tabbedex.tab-fg:    	10
+URxvt.tabbedex.tab-bg:    	0
+URxvt.tabbedex.title: 		yes
+URxvt.tabbedex.new-button:  no
+
+! URXVT FULLSCREEN TOGGLE
+!------------------------------------------------
+
+URxvt.keysym.F11: 			perl:fullscreen:switch
+
+! URXVT COLORS
+!------------------------------------------------
+
+*background: 				#111111
+*foreground: 				#FFFFFF
+
+!black
+*color0: 					#222222
+*color8: 					#666666
+!red
+*color1: 					#E84F4F
+*color9: 					#D23D3D
+!green
+*color2: 					#B7CE42
+*color10: 					#BDE077
+!yellow
+*color3: 					#FEA63C
+*color11: 					#FFE863
+!blue
+*color4: 					#66AABB
+*color12: 					#AACCBB
+!magenta
+*color5: 					#B7416E
+*color13: 					#E16A98
+!cyan
+*color6: 					#6D878D
+*color14: 					#42717B
+!white
+*color7: 					#DDDDDD
+*color15: 					#CCCCCC

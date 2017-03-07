@@ -11,6 +11,8 @@
 #
 ##################################################################################################################
 
+# troubles with gstreamer 02/2017
+# packer gstreamer0.10-base
 
 package="radiotray"
 command="radiotray"

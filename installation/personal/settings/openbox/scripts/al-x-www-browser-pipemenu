@@ -1,0 +1,171 @@
+#!/bin/bash
+#    bl-x-www-browser-pipemenu - an Openbox pipemenu for web browsers
+#    Copyright (C) 2012 Philip Newborough   <corenominal@corenominal.org>
+#    Copyright (C) 2013 Aleks-Daniel Jakimenko
+#    Copyright (C) 2015 damo    <damo@bunsenlabs.org>
+#    Copyright (C) 2015-2016 John Crawley    <john@bunsenlabs.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#   To change the entries shown in the Browsers pipemenu:
+#   edit ".config/openbox/pipemenus.rc"
+
+HELP='    bl-x-www-browser-pipemenu an Openbox Pipe Menu for web browsers
+    It should normally be called from an openbox menu.
+
+Options (usually passed from the menu):
+    -h --help   show this message
+    --install   install a web browser
+    (the browser must be in the list defined in the pipemenu config file)
+    (NOTE: Google Chrome will not appear in the menu on 32bit systems.)
+
+    If bl-x-www-browser-pipemenu is called with no options (the usual method),
+    it will output an xml openbox pipemenu
+    for launching and installing web browsers.
+
+See ~/.config/openbox/pipemenus.rc for configuration options.
+'
+# look for a help option somewhere
+for i in "$@"
+do
+    case "$i" in
+    -h|--help)
+        echo "$HELP"
+        exit 0
+        ;;
+    esac
+done
+
+BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
+USR_CFG_DIR="$HOME/.config/openbox"
+
+KEY_URLS_GOOGLE=('https://dl-ssl.google.com/linux/linux_signing_key.pub')
+KEY_URLS_OPERA=('http://deb.opera.com/archive.key')
+
+declareDependencies wget
+
+if ! . "$BL_COMMON_LIBDIR/bl-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source bl-include.cfg in $BL_COMMON_LIBDIR" >&2
+    exit 1
+elif ! . "$USR_CFG_DIR/pipemenus.rc" 2> /dev/null; then
+    echo $"Error: Failed to source pipemenus.rc in $USR_CFG_DIR" >&2
+    exit 1
+fi
+
+declare -A AppName AppStatus # AppName: split on hyphens, first letter uppercase
+for curApp in "${BROWSERS[@]}"; do
+    words=(${curApp//-/ })
+    AppName[$curApp]="${words[*]^}"
+    type "$curApp" >/dev/null 2>&1 && AppStatus[$curApp]=installed
+done
+
+appExists() {
+    for curApp in "${BROWSERS[@]}"; do # if $packageName exists in BROWSERS array
+        [[ $curApp = "$1" ]] &&
+            return 0
+    done
+    say "Unable to install $1. There is no such browser that I know of." 1 >&2
+    say "You can try one of these: ${BROWSERS[*]}" 2 >&2
+    return 1
+}
+
+addAptKey() {
+    clear
+    say 'Adding APT key...'
+    keyFile=$(mktemp)
+    gotKey=false
+    for curKey; do
+        wget -O "$keyFile" "$curKey" 2> /dev/null && {
+            gotKey=true
+            say 'Key downloaded.'
+            break
+        } # success. No need to try other keys
+        say "Failed to retrieve key from $curKey . Trying another source..."
+    done
+    if ! $gotKey; then
+        say 'Failed to retrieve APT key!' 3 >&2
+        return 1
+    fi
+    say 'Adding key'
+    sudo apt-key add "$keyFile"
+    rm -f "$keyFile"
+    return 0
+}
+
+# If the package needs additional configuration before installation
+# create a function called setupBrowserName, it will be called automatically.
+
+setupGoogleChromeStable() {
+    addAptKey "${KEY_URLS_GOOGLE[@]}" || return 1
+    say 'Creating APT sources file...' 1
+    echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee '/etc/apt/sources.list.d/google-chrome.list'
+}
+
+setupOpera() {
+    addAptKey "${KEY_URLS_OPERA[@]}" || return 1
+    say 'Creating APT sources file...' 1
+    echo 'deb http://deb.opera.com/opera/ stable non-free' | sudo tee '/etc/apt/sources.list.d/opera.list'
+}
+
+if [[ $1 = --install ]]; then
+    packageName=$2
+    appName=${AppName[$packageName]}
+    appExists "$packageName" || exit 1
+
+    terminalCheck -T "Install $appName" "$@"
+
+    desc="This script will install the $appName browser."
+    setupFunctionName="setup${appName//[^a-zA-Z]/}" # setupFunctionName should now be in format like 'setupChromium'
+    [[ $packageName = firefox ]] && packageName='firefox-esr' # firefox in Debian Jessie
+    if [[ $(type -t "$setupFunctionName") = 'function' ]]; then
+        promptInstall --setup "$setupFunctionName" "$appName" "$desc" "$packageName"
+    else
+        promptInstall "$appName" "$desc" "$packageName"
+    fi
+
+elif [[ $1 ]]; then
+    echo "$0: no such option $*" >&2
+    exit 1
+
+else # pipemenu
+    INSTALLED=false
+    menuStart
+
+    for curApp in "${BROWSERS[@]}"; do
+        if [[ ${AppStatus[$curApp]} = installed ]]; then
+            INSTALLED=true
+            menuItem "${AppName[$curApp]}" "$curApp"
+            [[ $curApp = *chrom* ]] && {
+                menuItem "${AppName[$curApp]} (Private Mode)" "$curApp --incognito" # Incognito mode for chrome and chromium
+            }
+        fi
+    done
+    menu_started=false
+    for curApp in "${BROWSERS[@]}"; do
+        if [[ ${AppStatus[$curApp]} != installed ]]; then
+            [[ $curApp = google-chrome-stable && $(dpkg --print-architecture) != 'amd64' ]] && continue
+            $menu_started || menuSubmenu "browsers-install-submenu" "Install"
+            menu_started=true
+            menuItem "Install ${AppName[$curApp]}" "$0 --install $curApp"
+        fi
+    done
+    $menu_started && menuSubmenuEnd
+
+    if $INSTALLED ; then
+        menuSeparator
+        menuItem 'Select Default Browser' "x-terminal-emulator -T 'Select Default Browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'"
+    fi
+    menuEnd
+fi
+exit 0

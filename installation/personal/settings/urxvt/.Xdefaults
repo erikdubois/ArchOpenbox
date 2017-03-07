@@ -1,0 +1,122 @@
+! general settings
+URxvt*saveline:         15000
+URxvt*termName:         rxvt-256color
+URxvt*iso14755:         false
+
+! appearance
+URxvt*depth:            32
+!URxvt*background:      rgba:0000/0000/0000/AAAA
+!URxvt*background:       [85]#404552
+URxvt*background:       [85]#3F424A
+URxvt*foreground:       White
+!URxvt*foreground:      AntiqueWhite
+URxvt.underlineColor:   #4682B4
+URxvt.highlightColor:   #4682B4
+URxvt.throughColor:     Blue
+URxvt*cursorColor:      Green
+URxvt*cursorColor2:     Black
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  false
+URxvt*internalBorder:   0
+URxvt*externalBorder:   0
+
+! colors
+URxvt*color0: #2e3436
+URxvt*color1: #cc0000
+URxvt*color2: #4e9a06
+URxvt*color3: #c4a000
+URxvt*color4: #3465a4
+URxvt*color5: #75507b
+URxvt*color6: #0b939b
+URxvt*color7: #d3d7cf
+URxvt*color8: #555753
+URxvt*color9: #ef2929
+URxvt*color10: #8ae234
+URxvt*color11: #fce94f
+URxvt*color12: #729fcf
+URxvt*color13: #ad7fa8
+URxvt*color14: #00f5e9
+URxvt*color15: #eeeeec
+
+! fonts
+!URxvt*letterSpace: 	    	-2
+!Xft.size:		12
+URxvt*font:                 	xft:Noto Mono:regular:size=15
+URxvt*imFont:               	xft:Noto Mono:regular:size=15
+URxvt*boldFont:             	xft:Noto Mono:bold:size=15
+URxvt*italicFont:           	xft:Noto Mono:italic:size=15
+URxvt*boldItalicFont:     		xft:Noto Mono:regular:size=15
+!URxvt*font:             		xft:Droid Sans Mono Dotted for Powerline:size=9:regular
+!URxvt*boldFont:         		xft:Droid Sans Mono Dotted for Powerline:size=9:bold
+!URxvt*itallicFont:      		xft:Droid Sans Mono Dotted for Powerline:size=9:itallic
+! run :.!fc-list | grep <font-name>
+
+! perl extensions
+URxvt.perl-ext-common:  default,clipboard,url-select,keyboard-select
+!URxvt.perl-ext-common:  default,clipboard,url-select,keyboard-select,tabbed
+
+! macros for clipboard and selection
+URxvt.copyCommand:      xclip -i -selection clipboard
+URxvt.pasteCommand:     xclip -o -selection clipboard
+URxvt.keysym.M-c:       perl:clipboard:copy
+URxvt.keysym.m-v:       perl:clipboard:paste
+URxvt.keysym.M-C-v:     perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape:  perl:keyboard-select:activate
+URxvt.keysym.M-s:       perl:keyboard-select:search
+URxvt.keysym.M-u:       perl:url-select:select_next
+URxvt.urlLauncher:      firefox
+URxvt.underlineURLs:    true
+URvxt.urlButton:        1
+
+! tabbed
+URxvt.tabbed.tabbar-fg: 4
+URxvt.tabbed.tabbar-bg: 16
+URxvt.tabbed.tab-fg:    15
+URxvt.tabbed.tab-bg:    4
+URxvt*buffered:         false
+
+
+
+
+! termtype
+UXTerm*termName: xterm-256color
+
+
+UXTerm*cursorColor:        white
+UXTerm*VT100.geometry:     90x30
+UXTerm*font:               Noto Mono
+UXTerm*faceSize:		   15
+UXTerm*dynamicColors:      true
+UXTerm*utf8:               2
+UXTerm*eightBitInput:      true
+UXTerm*saveLines:          10000
+UXTerm*scrollKey:          true
+UXTerm*scrollTtyOutput:    false
+UXTerm*scrollBar:          false
+UXTerm*rightScrollBar:     false
+UXTerm*jumpScroll:         true
+UXTerm*multiScroll:        true
+UXTerm*toolBar:            false
+
+! fix colors
+UXTerm*background: rgb:00/00/00
+UXTerm*foreground: rgb:00/00/00
+UXTerm*color0: rgb:00/00/00
+UXTerm*color1: rgb:a8/00/00
+UXTerm*color2: rgb:00/a8/00
+UXTerm*color3: rgb:a8/54/00
+UXTerm*color4: rgb:00/00/a8
+UXTerm*color5: rgb:a8/00/a8
+UXTerm*color6: rgb:00/a8/a8
+UXTerm*color7: rgb:a8/a8/a8
+UXTerm*color8: rgb:54/54/54
+UXTerm*color9: rgb:fc/54/54
+UXTerm*color10: rgb:54/fc/54
+UXTerm*color11: rgb:fc/fc/54
+UXTerm*color12: rgb:54/54/fc
+UXTerm*color13: rgb:fc/54/fc
+UXTerm*color14: rgb:54/fc/fc
+UXTerm*color15: rgb:fc/fc/fc
+UXTerm*boldMode: false
+UXTerm*colorBDMode: true
+UXTerm*colorBD: rgb:fc/fc/fc
