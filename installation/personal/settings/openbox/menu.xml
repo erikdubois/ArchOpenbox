@@ -399,7 +399,7 @@
 			<item label="Set Any Wallpaper">
 				<action name="Execute">
 					<command>
-                        nitrogen ~/Dropbox/Apps/Desktoppr/
+                        nitrogen
                     </command>
 				</action>
 			</item>
