@@ -12,6 +12,10 @@ set -e
 ##################################################################################################################
 
 
+echo "################################################################"
+echo "trayicon for sound for bluetooth headphone"
+echo "################################################################"
+
 
 package="pasystray-gtk3-standalone"
 
@@ -57,12 +61,17 @@ else
 	echo "!!!!!!!!!  "$package" has NOT been installed"
 	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
+	echo "To install pasytray, go to tmp file and run from there"
+	echo "sudo pacman -U /tmp/packerbuild-1000/pasystray-git/pasystray-git/pasystray-git-0.6.0.r13.gccb5b6e-1-x86_64.pkg.tar.xz"
+	echo "Trying to run the git version"
+	sudo pacman -U /tmp/packerbuild-1000/pasystray-git/pasystray-git/pasystray-git*  --needed --noconfirm
 	fi
 
 fi
 
 
 
+
 echo "################################################################"
-echo "#########      pasystray software installed     ################"
+echo "#########   distro specific software installed  ################"
 echo "################################################################"

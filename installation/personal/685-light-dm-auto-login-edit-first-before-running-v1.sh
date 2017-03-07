@@ -10,16 +10,19 @@ set -e
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
+#see arch wiki lightdm autologin
+
+echo "Autologin for user ??? - change username "
+
+sudo sed -i 's/#autologin-user=/autologin-user=erik/g' /etc/lightdm/lightdm.conf
+sudo sed -i 's/#autologin-session=/autologin-session=openbox/g' /etc/lightdm/lightdm.conf
+
+sudo groupadd -r autologin
+
+# erik is my login
+sudo gpasswd -a erik autologin
 
 echo "################################################################"
-echo "#########      from qwerty to azerty            ################"
+echo "#########       ligthtdm automatic login enabled      ##########"
 echo "################################################################"
 
-
-setxkbmap -model pc101 -layout be
-
-#localectl set-x11-keymap be
-
-echo "################################################################"
-echo "#########       azerty keyboard belgium         ################"
-echo "################################################################"

@@ -116,3 +116,5 @@ clipit &
 
 #disables energystar features and no f...ing screensaver
 xset -dpms; xset s off  &
+
+setxkbmap -model pc101 -layout be
