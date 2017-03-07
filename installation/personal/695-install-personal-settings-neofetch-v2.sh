@@ -15,7 +15,7 @@ set -e
 echo "copying screenfetch settings "
 
 
-cp -r settings/neofetch/ ~/.config/
+cp -rf settings/neofetch/ ~/.config/
 
 
 
