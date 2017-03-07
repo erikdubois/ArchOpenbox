@@ -486,7 +486,13 @@
                     </command>
 				</action>
 			</item>	
-			<menu execute="/usr/bin/al-printing-pipemenu" id="PrintingPipeMenu" label="Printers"/>
+			<item label="Printer">
+				<action name="Execute">
+					<command>
+                        system-config-printer
+                    </command>
+				</action>
+			</item>				
 			<item label="Text Editor As Root">
 				<action name="Execute">
 					<command>
