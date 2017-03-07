@@ -19,6 +19,10 @@ URxvt*scrollBar:        false
 URxvt*scrollBar_right:  false
 URxvt*internalBorder:   0
 URxvt*externalBorder:   0
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
+
 
 ! colors
 URxvt*color0: #2e3436
