@@ -12,16 +12,18 @@ set -e
 ##################################################################################################################
 
 
-echo "Copy/pasting settings.ini to .config/gtk-3.0"
+echo "remove the message about virtual box when you restart"
+echo "if you are not on virtualbox you can run this"
 
-cp settings/themes/settings.ini ~/.config/gtk-3.0/
+[ -f /etc/xdg/autostart/vboxclient.desktop ] && sudo rm /etc/xdg/autostart/vboxclient.desktop
 
-echo "Copy/pasting gtkrc-2 to home folder"
+# remove as well software installed for virtualbox support once you are on ssd/harddisk
+# http://archlabs.prophpbb.com/topic21.html
 
-cp settings/themes/.gtkrc-2.0 ~/
-
+sudo pacman -Rns virtualbox-guest-utils virtualbox-guest-modules-arch
+sudo rm /etc/modules-load.d/virtualbox.conf
 
 echo "################################################################"
-echo "#########     theme settings have been copied   ################"
+echo "#########    virtual box for guest has been remoced     ########"
 echo "################################################################"
 

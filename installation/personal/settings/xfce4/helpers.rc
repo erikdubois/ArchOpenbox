@@ -1,4 +1,4 @@
-FileManager=custom-FileManager
+FileManager=Thunar
 TerminalEmulator=gnome-terminal
 WebBrowser=firefox
 MailReader=evolution

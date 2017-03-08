@@ -36,6 +36,8 @@ echo "################################################################"
 
 [ -d $HOME"/.config/smplayer" ] || mkdir -p $HOME"/.config/smplayer"
 
+[ -d $HOME"/.config/qt5ct" ] || mkdir -p $HOME"/.config/qt5ct"
+
 
 echo "################################################################"
 echo "#########            folders created            ################"

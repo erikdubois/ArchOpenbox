@@ -91,7 +91,7 @@ sh install-sublime-text-v1.sh
 
 # Vivaldi
 
-sh install-vivaldi-v1.sh
+#sh install-vivaldi-v1.sh
 
 ###############################################################################################
 

@@ -120,6 +120,3 @@ clipit &
 
 #disables energystar features and no f...ing screensaver
 xset -dpms; xset s off  &
-
-#sudo loadkeys be-latin1
-setxkbmap -model pc101 -layout be 

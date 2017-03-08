@@ -1,7 +1,7 @@
 [Added Associations]
 text/plain=sublime_text_3.desktop;leafpad.desktop;
 application/xml=geany.desktop;
-application/x-shellscript=sublime_text_3.desktop;leafpad.desktop;
+application/x-shellscript=sublime_text_3.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/mailto=exo-mail-reader.desktop

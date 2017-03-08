@@ -11,21 +11,16 @@ set -e
 #
 ##################################################################################################################
 
-
 echo "################################################################"
-echo "#########            openbox configs            ################"
+echo "#########       Screenshot settings             ################"
 echo "################################################################"
 
+echo "Making sure gnome-screenshot saves in jpg - smaller in kb"
 
-
-[ -d $HOME"/.config/openbox" ] || mkdir -p $HOME"/.config/openbox"
-
-cp -r ~/.config/openbox ~/.config/openbox-original
-cp -r settings/openbox/ ~/.config/
-
+cd settings/gnome-screenshot
+sh set-gnome-screenshot-to-save-as-jpg.sh
 
 
 echo "################################################################"
-echo "######        openbox configs installed         ################"
+echo "#########    screenshot settings  installed     ################"
 echo "################################################################"
-
