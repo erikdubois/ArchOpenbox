@@ -22,6 +22,7 @@ echo "################################################################"
 ## sudo pacman -S ttf-droid --noconfirm --noconfirm --needed  conflicts with ttf-google-fonts
 ## sudo pacman -S ttf-inconsolata --noconfirm --needed        conflicts with ttf-google-fonts
 sudo pacman -S noto-fonts --noconfirm --needed
+sudo pacman -S ttf-roboto --noconfirm --needed
 
 #File manager
 
@@ -47,63 +48,6 @@ sudo pacman -S openbox --needed --noconfirm
 # openbox - AUR - alphabetically
 
 
-
-
-
-
-echo "################################################################"
-echo "archlinux-xdg-menu"   
-echo "################################################################"
-
-
-
-package="archlinux-xdg-menu"
-
-#----------------------------------------------------------------------------------
-
-#checking if application is already installed or else install with aur helpers
-if pacman -Qi $package &> /dev/null; then
-
-	echo "################################################################"
-	echo "################## "$package" is already installed"
-	echo "################################################################"
-
-else
-
-	#checking which helper is installed
-	if pacman -Qi packer &> /dev/null; then
-
-		echo "Installing with packer"
-		packer -S --noconfirm --noedit  $package
-
-	elif pacman -Qi pacaur &> /dev/null; then
-		
-		echo "Installing with pacaur"
-		pacaur -S --noconfirm --noedit  $package
-		 	
-	elif pacman -Qi yaourt &> /dev/null; then
-
-		echo "Installing with yaourt"
-		yaourt -S --noconfirm $package
-			  	
-	fi
-
-	# Just checking if installation was successful
-	if pacman -Qi $package &> /dev/null; then
-	
-	echo "################################################################"
-	echo "#########  "$package" has been installed"
-	echo "################################################################"
-
-	else
-
-	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	echo "!!!!!!!!!  "$package" has NOT been installed"
-	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-
-	fi
-
-fi
 
 
 
