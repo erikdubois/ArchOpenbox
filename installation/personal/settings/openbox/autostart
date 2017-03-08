@@ -1,122 +1,47 @@
-## Openbox autostart
-## ====================
-## When you login to your BunsenLabs Openbox session, this autostart script
-## will be executed to set-up your environment and launch any applications
-## you want to run at startup.
-##
-## Note: some programs, such as 'nm-applet' are run via XDG autostart.
-## Run
-## /usr/lib/x86_64-linux-gnu/openbox-xdg-autostart --list
-## or
-## /usr/lib/i386-linux-gnu/openbox-xdg-autostart --list
-## to list any XDG autostarted programs.
-##
-## More information about this can be found at:
-## http://openbox.org/wiki/Help:Autostart
-##
-## If you do something cool with your autostart script and you think others
-## could benefit from your hack, please consider sharing it at:
-## http://forums.bunsenlabs.org (registration required)
-##
+####Original Antergos Configuration
 
-### SETTINGS START
+#nitrogen --restore &
+#volumeicon &
+#compton --config ~/.config/compton.conf -b &
+#tint2 &
+#plank &
+#conky -c ~/.config/conky.conf &
+#lxpolkit &
 
-xrandr --output VGA-1 --mode 1920x1080
 
-## Turn on/off system beep.
-xset b off
+#### Personal Configuration
 
-numlockx on &
 
-xfsettingsd &
+##compositor
+compton --config ~/.config/compton.conf -b &
 
-## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
-## Adjust the values according to your preferances.
-xset r rate 250 25
 
-## Add keyboard mapping.
-#xmodmap -e "keysym Insert = Multi_key"
+##volume icons
+#volumeicon &
+pasystray &
 
-## Disable CapsLock
-setxkbmap -option ctrl:nocaps
-# alternative: use as compose key
-#setxkbmap -option compose:caps
-
-### TOUCHPAD: comment out the next two entries if you don't have one
-
-## Configure touchpad. See 'man synaptics' for more info.
-#synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
-
-## Disable touchpad while typing
-#syndaemon -i .5 -K -t -R -d &
-
-### TOUCHPAD END
-
-### SETTINGS END
-
-## Compton
-## NOTE: composition must be started before tint2
-compton -b --config ~/.config/compton.conf &
 
 plank &
 
-## Set a wallpaper
-#(sleep 5;nitrogen --restore) &
-#variety will take care of that
 
-#just for initial start
-#only for dual monitors
-nitrogen --set-zoom-fill --head=0 ~/.config/openbox/wallpapers/standard.jpg
-nitrogen --set-zoom-fill --head=1 ~/.config/openbox/wallpapers/standard.jpg
-
-#only for single monitors
-#nitrogen --set-zoom-fill ~/.config/openbox/wallpapers/Wall4.png
-
-
-## Start the tint2 session (the default tint2 will run if no sessions have been set)
+##panels
+#xfce4-panel &
 tint2 &
 
-## Start PulseAudio
-## (This replaces /etc/xdg/autostart/pulseaudio.desktop
-## which is disabled by ~/.config/autostart/pulseaudio.desktop.)
-## NOTE: PulseAudio must be started before volumeicon
-al-start-pulseaudio-x11
 
-## Volume control for systray
-#(sleep 5; volumeicon) &
-amixer -D pulse sset Master '30%'
-pasystray &
-
-## Start the Conky session (the default conkyrc will run if no sessions have been set)
-#al-conky-session --autostart &
-
-conky -q &
-
-## Start the battery applet
-#fdpowermon &
-
-## Start Clipboard manager
-clipit &
-
-#(sleep 2; volti) &
-
-(sleep 2; nm-applet) &
-
-#(sleep 2; gmrun) &
-
-#xscreensaver -no-splash &
-
-## al-welcome - post-installation script, will not run in a live session and
-## only runs once. Safe to remove.
-#(sleep 10; al-welcome --firstrun) &
-
-## al-fortune - have the system come up with a little adage (not yet enabled)
-#(sleep 120; al-fortune) &
+##PolicyKit authentication
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#lxpolkit &
 
 
-## GNOME PolicyKit authentication
-#/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+## numeric keyboard on
+numlockx on
 
-#disables energystar features and no f...ing screensaver
-xset -dpms; xset s off  &
+
+
+
+
+
+
+
+
