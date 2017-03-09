@@ -11,26 +11,15 @@ set -e
 #
 ##################################################################################################################
 
-echo "################################################################"
-echo "#########          root files                   ################"
-echo "################################################################"
 
+echo "oblogout changing icon theme from foom to oxygen "
 
-cp settings/root/.bashrc ~/
-cp settings/root/.bash_profile ~/
+# changing the theme to random so you can enjoy tons of themes.
 
-#in other folder
-#cp settings/root/.gtkrc-2.0 ~/
-
-
-#cp settings/root/.xinitrc ~/
-cp settings/root/.zlogin ~/
-cp settings/root/.zshrc ~/
-
-
-
+sudo sed -i 's/buttontheme = Numix/buttontheme = sardi-oblogout/g' /etc/oblogout.conf
 
 
 echo "################################################################"
-echo "#########          root files installed         ################"
+echo "#########     oblogout.conf has been changed    ################"
 echo "################################################################"
+
