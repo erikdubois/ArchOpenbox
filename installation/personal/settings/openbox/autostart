@@ -20,7 +20,7 @@
 ##
 
 ### SETTINGS START
-
+# only for virtualbox
 xrandr --output VGA-1 --mode 1920x1080
 
 ## Turn on/off system beep.
@@ -28,7 +28,16 @@ xset b off
 
 numlockx on &
 
+blueberry-tray &
+
 xfsettingsd &
+
+dropbox start &
+
+plank &
+
+insync start &
+
 
 ## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
 ## Adjust the values according to your preferances.
@@ -58,7 +67,7 @@ setxkbmap -option ctrl:nocaps
 ## NOTE: composition must be started before tint2
 compton -b --config ~/.config/compton.conf &
 
-plank &
+
 
 ## Set a wallpaper
 #(sleep 5;nitrogen --restore) &

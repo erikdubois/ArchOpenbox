@@ -101,12 +101,12 @@
 				<action name="Execute">
 					<command>urxvt -T 'htop task manager' -e htop</command>
 				</action>
-			</item>			
+			</item>
 			<item label="Urxvt Terminal">
 				<action name="Execute">
 					<command>urxvt</command>
 				</action>
-			</item>		
+			</item>
 			<item label="Usb - image to usb">
 				<action name="Execute">
 					<command>mintstick -m iso</command>
@@ -190,7 +190,7 @@
 				<action name="Execute">
 					<command>vlc</command>
 				</action>
-			</item>			
+			</item>
 			<item label="XFBurn">
 				<action name="Execute">
 					<command>xfburn</command>
@@ -304,12 +304,22 @@
 					<command>subl3</command>
 				</action>
 			</item>
-		</menu>		
+		</menu>
 		<separator/>
 		<menu execute="/usr/bin/al-places-pipemenu" id="pipe-placesmenu" label="Places"/>
 		<menu execute="/usr/bin/al-recent-files-pipemenu" id="pipe-recentfilesmenu" label="Recent Files"/>
-		<separator/>	
+		<separator/>
 		<menu id="Configure" label="Configure">
+			<item label="Conky start">
+				<action name="Execute">
+					<execute>conky -q</execute>
+				</action>
+			</item>
+			<item label="Conky stop">
+				<action name="Execute">
+					<execute>killall conky</execute>
+				</action>
+			</item>
 			<item label="Aureola Conky">
 				<action name="Execute">
 					<execute>exo-open ~/.config/conky/conky.conf</execute>
@@ -372,8 +382,8 @@
 					<execute>tint2conf</execute>
 				</action>
 			</item>
-		</menu>			
-		<separator/>	
+		</menu>
+		<separator/>
 		<menu id="preferences" label="Preferences">
 			<item label="LightDM Appearance">
 				<action name="Execute">
@@ -415,7 +425,7 @@
 						arandr
 					</command>
 				</action>
-			</item>	
+			</item>
 			<item label="Notifications">
 				<action name="Execute">
 					<command>xfce4-notifyd-config</command>
@@ -441,7 +451,7 @@
                         xfce4-settings-manager
                     </command>
 				</action>
-			</item>		
+			</item>
 		</menu>
 		<menu id="system" label="System">
 			<item label="File Manager As Root">
@@ -485,14 +495,14 @@
                         exo-preferred-applications
                     </command>
 				</action>
-			</item>	
+			</item>
 			<item label="Printer">
 				<action name="Execute">
 					<command>
                         system-config-printer
                     </command>
 				</action>
-			</item>				
+			</item>
 			<item label="Text Editor As Root">
 				<action name="Execute">
 					<command>

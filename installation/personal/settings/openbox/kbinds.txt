@@ -1,8 +1,8 @@
-2017-03-07	rc.xml KEYBINDS
+2017-03-09	rc.xml KEYBINDS
 -------------------------------
 
  0	C-A-m           	xfce4-settings-manager
- 1	C-A-BackSpace   	openbox --restart
+ 1	C-S-BackSpace   	openbox --restart
  2	W-KP_1          	UnmaximizeFull
  3	W-KP_2          	UnmaximizeFull
  4	W-KP_3          	UnmaximizeFull
@@ -75,7 +75,7 @@
 71	A-F5            	Iconify
 72	A-F6            	ToggleMaximize
 73	Print           	xfce4-screenshooter
-74	A-Print         	scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; bl.....
+74	A-Print         	scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/ '
 75	C-Print         	gnome-screenshot -i
 76	A-Tab           	NextWindow
 77	A-S-Tab         	PreviousWindow

@@ -40,7 +40,7 @@
                     'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Arc-Dark</name>
+    <name>Arc-Dark-ArchLabsGrey</name>
     <titleLayout>DSLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -181,7 +181,7 @@
         <command>xfce4-settings-manager</command>
       </action>
     </keybind>
-    <keybind key="C-A-BackSpace">
+    <keybind key="C-S-BackSpace">
       <action name="Execute">
         <command>openbox --restart</command>
       </action>
@@ -579,7 +579,7 @@
     </keybind>
     <keybind key="A-Print">
       <action name="Execute">
-        <command>scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; bl-image-viewer ~/Pictures/screenshots/$f'</command>
+        <command>scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/ '</command>
       </action>
     </keybind>
     <keybind key="C-Print">
